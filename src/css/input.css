@@ -14,7 +14,7 @@
   /* Warna Utama */
   --color-primary: #1F7A6B; 
   --color-primary-light: #4FA493; /* Tint 2 */
-  --color-primary-subtle: #D9EFEA; /* Tint 5 / 
+  --color-primary-subtle: #D9EFEA; /* Tint 5 */ 
 
   /* Warna Sekunder */
   --color-secondary: #1C4E80;
@@ -34,4 +34,11 @@
   --color-bali-400: #2F8F7E; /* Shade 4 */
   --color-bali-500: #1F7A6B; /* Primary/Tint 1 */
   --color-bali-600: #196155; /* Lebih gelap dari primary */
+
+  --background-image-hero-overlay: linear-gradient(
+        90deg, 
+        rgba(16, 24, 40, 0.9) 0%, 
+        rgba(16, 24, 40, 0.7) 50%, 
+        rgba(0, 79, 59, 0.5) 100%
+    );
 }
