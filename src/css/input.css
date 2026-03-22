@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Animal Chariot';
+  src: url('../../public/assets/fonts/animal-chariot.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-animal: "Animal Chariot", cursive;
+
+  /* Warna Utama */
+  --color-primary: #1F7A6B; 
+  --color-primary-light: #4FA493; /* Tint 2 */
+  --color-primary-subtle: #D9EFEA; /* Tint 5 / 
+
+  /* Warna Sekunder */
+  --color-secondary: #1C4E80;
+
+  /* Warna Info (Sky Blue) */
+  --color-info: #3BAFDA;
+
+  /* Warna Aksi (Warning, Error, Success) */
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-success: #22C55E;
+
+  --color-bali-50: #E8F5F3;  /* Shade 1 */
+  --color-bali-100: #BFE3DC; /* Shade 2 */
+  --color-bali-200: #86C4B7; /* Tint 3 */
+  --color-bali-300: #5FAF9E; /* Shade 3 */
+  --color-bali-400: #2F8F7E; /* Shade 4 */
+  --color-bali-500: #1F7A6B; /* Primary/Tint 1 */
+  --color-bali-600: #196155; /* Lebih gelap dari primary */
+}

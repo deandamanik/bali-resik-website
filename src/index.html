@@ -3,11 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./css/output.css" rel="stylesheet">
 </head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+<body class="font-poppins bg-bali-50 text-gray-900">
+
+  <section class="relative bg-gray-950 min-h-[95vh] overflow-hidden text-white rounded-b-[40px] shadow-2xl">
+    
+    <div class="absolute inset-0 z-0">
+      <img src="../public/assets/img/img-home-1.jpg" alt="Bali Landscape" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-linear-to-b from-black/60 via-transparent to-black/20"></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col min-h-[95vh]">
+      
+      <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center py-6 px-6 lg:px-36 border-b border-white/10 transition-all duration-300">
+          <div class="flex items-center gap-4">
+              <img src="../public/assets/logo/Logo-White.png" alt="Bali Resik Logo" class="h-12">
+              <h1 class="text-2xl font-bold text-white tracking-tight">Bali Resik</h1>
+          </div>  
+
+          <div class="hidden md:flex gap-14 font-medium text-white/60 items-center">
+              <a href="#" class="text-white relative after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-white after:rounded-full font-bold">Beranda</a>
+              <a href="#" class="hover:text-white transition-colors duration-300">Peta Sampah</a>
+              <a href="#" class="hover:text-white transition-colors duration-300">Gamifikasi</a>
+              <a href="#" class="hover:text-white transition-colors duration-300">Tentang</a>
+          </div>
+
+          <div class="flex items-center gap-6">
+              <button class="bg-white text-[#153C35] px-7 py-2 rounded-sm font-bold hover:brightness-110 transition shadow-lg">
+                  Laporkan
+              </button>
+              
+              <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10 hover:border-white/30 transition cursor-pointer">
+                  <img src="../public/assets/icon/Icon-User.png" alt="User" class="w-full h-full object-cover">
+              </div>
+          </div>
+      </nav>
+
+      <div class="grow"></div>
+    </div>
+  </section>
+
 </body>
 </html>
