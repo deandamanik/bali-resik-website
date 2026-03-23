@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "../**/*.html";
+@source "../**/*.js";
 
 @font-face {
   font-family: 'Animal Chariot';
