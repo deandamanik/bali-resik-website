@@ -77,5 +77,14 @@
 
 @keyframes growLine {
     from { width: 0; opacity: 0; }
-    to { width: 80%; opacity: 1; } /* Sesuai dengan posisi left/right 10% */
+    to { width: 80%; opacity: 1; } 
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll; 
+}
+
+.lock-scroll {
+    overflow: hidden !important;
 }
