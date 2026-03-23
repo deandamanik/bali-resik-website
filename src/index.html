@@ -3,11 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./css/output.css" rel="stylesheet">
 </head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+<body class="font-poppins bg-bali-50 text-gray-900">
+
+  <section class="relative bg-gray-950 min-h-[95vh] overflow-hidden text-white rounded-b-[40px] shadow-2xl">
+    
+    <div class="absolute inset-0 z-0">
+    <img src="../public/assets/img/img-home-1.jpg" alt="Bali Landscape" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-hero-overlay"></div>
+    <div class="absolute inset-0 bg-linear-to-b from-black/60 via-transparent to-black/20"></div>
+  </div>
+
+    <div class="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col min-h-[95vh]">
+      
+      <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center py-6 px-6 lg:px-36 border-b border-white/10 transition-all duration-300">
+          <div class="flex items-center gap-4">
+              <img src="../public/assets/logo/Logo-White.png" alt="Bali Resik Logo" class="h-12">
+              <h1 class="text-2xl font-bold text-white tracking-tight">Bali Resik</h1>
+          </div>  
+
+          <div class="hidden md:flex gap-14 font-medium text-white/60 items-center">
+              <a href="#" class="text-white relative after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-white after:rounded-full font-bold">Beranda</a>
+              <a href="#" class="hover:text-white transition-colors duration-300">Peta Sampah</a>
+              <a href="#" class="hover:text-white transition-colors duration-300">Gamifikasi</a>
+              <a href="#" class="hover:text-white transition-colors duration-300">Tentang</a>
+          </div>
+
+          <div class="flex items-center gap-6">
+              <button class="bg-white text-[#153C35] px-7 py-2 rounded-sm font-bold hover:brightness-110 transition shadow-lg">
+                  Laporkan
+              </button>
+              
+              <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10 hover:border-white/30 transition cursor-pointer">
+                  <img src="../public/assets/icon/Icon-User.png" alt="User" class="w-full h-full object-cover">
+              </div>
+          </div>
+      </nav>
+
+      <div class="grow flex flex-col justify-center max-w-4xl mt-20">
+        <h2 class="font-animal text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 tracking-wide drop-shadow-2xl">
+          Restoring Bali's Harmony Through <br>
+          Smart Waste Management</span>
+        </h2>
+        
+        <p class="text-gray-200 text-base md:text-lg font-light mb-10 max-w-xl leading-relaxed opacity-90">
+          Inspired by <span class="font-semibold italic">Tri Hita Karana</span>, uniting people, nature, and technology to restore balance in Bali.
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+          <button class="bg-white text-[#153C35] px-8 py-3 rounded-full text-base font-bold hover:bg-bali-100 transition-all shadow-xl">
+            Laporkan Sampah
+          </button>
+          <button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-base font-semibold hover:bg-white/10 transition backdrop-blur-sm">
+            Lihat Peta Sampah
+          </button>
+        </div>
+      </div>
+
+      <div class="pb-10 flex justify-center gap-3">
+        <div class="w-3 h-3 rounded-full bg-primary"></div>
+        <div class="w-3 h-3 rounded-full bg-gray-400"></div>
+        <div class="w-3 h-3 rounded-full bg-gray-400"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+  <div class="container mx-auto px-6 lg:px-40">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-4xl md:text-5xl font-medium text-gray-900 mb-6">
+        Tantangan Lingkungan di Bali
+      </h2>
+      <p class="text-gray-500 text-md leading-relaxed">
+        Di balik keindahan Bali, ada masalah sampah yang makin serius. Kondisi ini mulai berdampak ke alam, tempat suci, kesehatan masyarakat, sampai keseimbangan hidup masyarakat Bali.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mb-20">
+      
+      <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center">
+        <div class="w-16 h-16 bg-bali-50 rounded-xl flex items-center justify-center mx-auto mb-6">
+          <img src="../public/assets/icon/Icon-home-1.png" alt="Trend" class="h-8 w-8">
+        </div>
+        <div class="flex items-baseline justify-center gap-1 mb-3">
+          <span class="text-4xl font-bold text-gray-900">3,800</span>
+          <span class="text-gray-500 font-medium text-sm">ton/hari</span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Setiap hari Bali menghasilkan ribuan ton sampah, dan jumlahnya terus naik karena pariwisata dan perkembangan kota.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center">
+        <div class="w-16 h-16 bg-bali-50 rounded-xl flex items-center justify-center mx-auto mb-6">
+          <img src="../public/assets/icon/Icon-home-2.png" alt="Trash" class="h-8 w-8">
+        </div>
+        <div class="mb-3">
+          <span class="text-4xl font-bold text-gray-900">48<span class="text-2xl">%</span></span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Hampir setengah sampah di Bali masih berakhir di pembuangan terbuka atau bocor ke lingkungan sekitar.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center">
+        <div class="w-16 h-16 bg-bali-50 rounded-xl flex items-center justify-center mx-auto mb-6">
+          <img src="../public/assets/icon/Icon-home-3.png" alt="Sea" class="h-8 w-8">
+        </div>
+        <div class="flex items-baseline justify-center gap-1 mb-3">
+          <span class="text-4xl font-bold text-gray-900">33</span>
+          <span class="text-gray-500 font-medium text-sm">ton</span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Sampah plastik yang masuk ke laut Bali setiap tahun mengancam ekosistem laut dan pariwisata pesisir.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+        <img src="../public/assets/img/bali-tercemar-1.jpg" alt="Dampak Lingkungan" class="w-full h-112.5 object-cover">
+        <div class="absolute bottom-6 left-6">
+          <span class="bg-primary/90 backdrop-blur-md text-white px-5 py-2 rounded-lg font-semibold text-sm">
+            Zona Dampak Lingkungan
+          </span>
+        </div>
+        <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-md p-2 rounded-full text-white hover:bg-white/40 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="space-y-8">
+        
+        <div class="flex gap-6 border-l-4 border-primary pl-6 py-1">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Pariwisata yang Overload</h4>
+            <p class="text-gray-500 leading-relaxed">
+              Jutaan wisatawan datang setiap tahun, tapi kapasitas pengolahan sampah belum mampu mengimbangi.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 border-l-4 border-primary pl-6 py-1">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Tempat Suci Ikut Terdampak</h4>
+            <p class="text-gray-500 leading-relaxed">
+              Sungai yang melewati area pura mulai tercemar, mengganggu kesucian dan lingkungan sekitar.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 border-l-4 border-primary pl-6 py-1">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Dampak ke Kesehatan & Ekonomi</h4>
+            <p class="text-gray-500 leading-relaxed">
+              Air yang tercemar dan pembuangan liar berdampak ke pertanian, perikanan, dan kesehatan masyarakat.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 border-l-4 border-primary pl-6 py-1">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Keseimbangan Alam Terganggu</h4>
+            <p class="text-gray-500 leading-relaxed">
+              Kerusakan lingkungan juga mempengaruhi keseimbangan hidup yang menjadi bagian penting budaya Bali.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
 </body>
 </html>
