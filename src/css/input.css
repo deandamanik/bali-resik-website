@@ -90,3 +90,29 @@ html {
 .lock-scroll {
     overflow: hidden !important;
 }
+
+@layer utilities {
+    /* ... utilitas reveal kamu yang lama ... */
+
+    /* Tambahkan ini di bawahnya */
+    @keyframes slideInLeft {
+        from { transform: translateX(-40px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInRight {
+        from { transform: translateX(40px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    .animate-slideInLeft {
+        animation: slideInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .animate-slideInRight {
+        animation: slideInRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+    .animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Sampah - Bali Resik</title>
+    
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="./css/output.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-900 overflow-x-hidden">
+
+    <header></header>
+
+    <main>
+        <section class="relative bg-[#153C35] pt-48 pb-32 px-6 lg:px-36 rounded-b-[50px] overflow-hidden">
+            <div class="relative z-10 max-w-4xl animate-slideInLeft">
+                <span class="text-[#569785] font-bold tracking-widest uppercase text-sm mb-4 block">Monitoring Real-Time</span>
+                <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8">
+                    Peta Sebaran <span class="text-[#569785]">Sampah</span> Bali.
+                </h1>
+                <p class="text-white/70 text-lg leading-relaxed max-w-2xl">
+                    Lihat titik lokasi tumpukan sampah yang dilaporkan oleh warga. Gunakan peta ini untuk memantau area yang memerlukan penanganan segera.
+                </p>
+            </div>
+            <div class="absolute top-0 right-0 w-1/3 h-full bg-[#1F7A6B]/10 blur-[120px] rounded-full -mr-20 -mt-20"></div>
+        </section>
+
+        <section class="py-24 px-6 lg:px-36">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                
+                <div class="lg:col-span-1 animate-slideInLeft animate-delay-200">
+                    <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 min-h-100">
+                        <h3 class="text-xl font-bold text-[#153C35] mb-6">Daftar Laporan</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-400 text-sm">Belum ada data laporan terbaru...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 animate-slideInRight animate-delay-400">
+                    <div id="map-container" class="w-full h-150 bg-gray-100 rounded-[40px] border border-gray-100 flex items-center justify-center relative overflow-hidden">
+                        <div class="text-center">
+                            <p class="text-gray-400 font-medium italic">Area integrasi Map (Leaflet / Google Maps)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="../src/js/components.js"></script>
+    <script src="../src/js/navbar.js"></script>
+    <script src="../src/js/auth-modal.js"></script>
+    <script>
+        initLayout('type1');
+        initNavbarScroll('type1'); 
+    </script>
+</body>
+</html>
