@@ -10,52 +10,70 @@
     <link href="./css/output.css" rel="stylesheet">
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #navbar {
+        z-index: 9999 !important;
+        }
+
+        #hamburger-btn {
+        position: relative;
+        z-index: 10000 !important;
+        pointer-events: auto !important;
+        }
+
+        .leaflet-container,
+        .leaflet-pane,
+        .leaflet-top,
+        .leaflet-bottom,
+        .leaflet-control {
+        z-index: 1 !important;
+        }
+    </style>
 </head>
 
 <body class="bg-white text-gray-900 h-screen overflow-hidden flex flex-col font-[Poppins]">
+    <header class="relative z-[999]"></header>
 
-    <header></header>
-
-    <main class="flex-1 relative mt-25 overflow-hidden"> 
+    <main class="relative flex-1 overflow-hidden mt-[84px] sm:mt-[92px]">
         <div class="flex h-full w-full relative">
             <div id="map-container" class="absolute inset-0 z-0 bg-gray-50"></div>
 
-    <div class="absolute top-8 left-8 z-10 flex flex-col gap-3 pointer-events-none animate-slideInLeft">
-        <div class="bg-white/70 backdrop-blur-lg px-6 py-4 rounded-[30px] border border-white/40 shadow-[0_8px_32px_0_rgba(21,60,53,0.08)] pointer-events-auto">
-            <h3 class="text-sm font-semibold text-[#153C35] tracking-tight flex items-center gap-2">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                Monitoring Sebaran Sampah
-            </h3>
-        </div>
+            <div class="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-auto lg:top-8 lg:left-8 z-10 flex flex-col gap-3 pointer-events-none animate-slideInLeft">
+                <div class="bg-white/70 backdrop-blur-lg px-4 sm:px-6 py-4 rounded-[30px] border border-white/40 shadow-[0_8px_32px_0_rgba(21,60,53,0.08)] pointer-events-auto max-w-full sm:max-w-fit">
+                    <h3 class="text-sm font-semibold text-[#153C35] tracking-tight flex items-center gap-2">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        Monitoring Sebaran Sampah
+                    </h3>
+                </div>
 
-    <div class="bg-white/70 backdrop-blur-lg p-4 rounded-[25px] border border-white/40 shadow-[0_8px_32px_0_rgba(21,60,53,0.08)] pointer-events-auto w-fit">
-        <div class="flex items-center gap-5 px-1">
-            <div class="flex items-center gap-2">
-                <div class="w-2.5 h-2.5 rounded-full bg-error"></div>
-                <span class="text-[10px] font-medium text-gray-500 tracking-wider">Kritis</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <div class="w-2.5 h-2.5 rounded-full bg-warning"></div>
-                <span class="text-[10px] font-medium text-gray-500 tracking-wider">Waspada</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
-                <span class="text-[10px] font-medium text-gray-500 tracking-wider">Selesai</span>
-              </div>
-          </div>
-      </div>
-  </div> 
+                <div class="bg-white/70 backdrop-blur-lg p-4 rounded-[25px] border border-white/40 shadow-[0_8px_32px_0_rgba(21,60,53,0.08)] pointer-events-auto w-full sm:w-fit">
+                    <div class="flex flex-wrap items-center gap-4 sm:gap-5 px-1">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-error"></div>
+                            <span class="text-[10px] font-medium text-gray-500 tracking-wider">Kritis</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-warning"></div>
+                            <span class="text-[10px] font-medium text-gray-500 tracking-wider">Waspada</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+                            <span class="text-[10px] font-medium text-gray-500 tracking-wider">Selesai</span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
 
-        <div id="side-panel" class="absolute top-8 right-8 bottom-8 w-112.5 bg-white rounded-[45px] shadow-2xl z-20 transform translate-x-[120%] transition-transform duration-700 ease-in-out border border-gray-100 overflow-hidden flex flex-col">
-                <button onclick="closeDetail()" class="absolute top-8 right-8 z-30 p-3 bg-gray-50 text-[#153C35] rounded-full hover:bg-red-500 hover:text-white transition-all shadow-sm">
+            <div id="side-panel" class="absolute top-4 right-4 bottom-4 left-4 sm:top-6 sm:right-6 sm:bottom-6 sm:left-auto sm:w-[24rem] lg:top-8 lg:right-8 lg:bottom-8 lg:w-[28rem] bg-white rounded-[28px] sm:rounded-[36px] lg:rounded-[45px] shadow-2xl z-20 transform translate-x-[120%] transition-transform duration-700 ease-in-out border border-gray-100 overflow-hidden flex flex-col">
+                <button onclick="closeDetail()" class="absolute top-5 right-5 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-30 p-3 bg-gray-50 text-[#153C35] rounded-full hover:bg-red-500 hover:text-white transition-all shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                <div class="flex-1 overflow-y-auto custom-scrollbar p-10 pt-16" id="detail-content"></div>
+                <div class="flex-1 overflow-y-auto custom-scrollbar p-5 pt-14 sm:p-7 sm:pt-16 lg:p-10 lg:pt-16" id="detail-content"></div>
             </div>
         </div>
     </main>
@@ -65,7 +83,8 @@
     <script src="../src/js/map-handler.js"></script> 
     <script src="../src/js/auth-modal.js"></script>
     <script>
-        initLayout('navbarPeta'); 
+        initLayout('navbarPeta');
+        initNavbarScroll('navbarPeta');
     </script>
 </body>
 </html>
