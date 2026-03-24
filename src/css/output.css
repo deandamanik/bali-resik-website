@@ -354,12 +354,6 @@
   .z-1000 {
     z-index: 1000;
   }
-  .z-\[999\] {
-    z-index: 999;
-  }
-  .z-\[1000\] {
-    z-index: 1000;
-  }
   .order-1 {
     order: 1;
   }
@@ -558,17 +552,11 @@
   .h-150 {
     height: calc(var(--spacing) * 150);
   }
-  .h-\[600px\] {
-    height: 600px;
-  }
   .h-full {
     height: 100%;
   }
   .min-h-22 {
     min-height: calc(var(--spacing) * 22);
-  }
-  .min-h-22\.5 {
-    min-height: calc(var(--spacing) * 22.5);
   }
   .min-h-72 {
     min-height: calc(var(--spacing) * 72);
@@ -579,17 +567,11 @@
   .min-h-100 {
     min-height: calc(var(--spacing) * 100);
   }
-  .min-h-\[90px\] {
-    min-height: 90px;
-  }
   .min-h-\[92vh\] {
     min-height: 92vh;
   }
   .min-h-\[95vh\] {
     min-height: 95vh;
-  }
-  .min-h-\[400px\] {
-    min-height: 400px;
   }
   .w-1 {
     width: calc(var(--spacing) * 1);
@@ -674,9 +656,6 @@
   }
   .max-w-125 {
     max-width: calc(var(--spacing) * 125);
-  }
-  .max-w-\[500px\] {
-    max-width: 500px;
   }
   .max-w-md {
     max-width: var(--container-md);
@@ -1085,9 +1064,6 @@
   }
   .bg-\[\#569785\] {
     background-color: #569785;
-  }
-  .bg-\[\#D9EFEA\] {
-    background-color: #D9EFEA;
   }
   .bg-amber-100 {
     background-color: var(--color-amber-100);
@@ -1815,12 +1791,6 @@
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
-  .shadow-\[\#1F7A6B\]\/20 {
-    --tw-shadow-color: color-mix(in srgb, #1F7A6B 20%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, #1F7A6B 20%, transparent) var(--tw-shadow-alpha), transparent);
-    }
-  }
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
@@ -2004,18 +1974,6 @@
       height: calc(var(--spacing) * 0.5);
     }
   }
-  .after\:h-\[2px\] {
-    &::after {
-      content: var(--tw-content);
-      height: 2px;
-    }
-  }
-  .after\:w-0 {
-    &::after {
-      content: var(--tw-content);
-      width: calc(var(--spacing) * 0);
-    }
-  }
   .after\:w-full {
     &::after {
       content: var(--tw-content);
@@ -2028,37 +1986,10 @@
       background-color: #1F7A6B;
     }
   }
-  .after\:bg-transparent {
-    &::after {
-      content: var(--tw-content);
-      background-color: transparent;
-    }
-  }
   .after\:bg-white {
     &::after {
       content: var(--tw-content);
       background-color: var(--color-white);
-    }
-  }
-  .after\:transition-all {
-    &::after {
-      content: var(--tw-content);
-      transition-property: all;
-      transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-      transition-duration: var(--tw-duration, var(--default-transition-duration));
-    }
-  }
-  .after\:duration-300 {
-    &::after {
-      content: var(--tw-content);
-      --tw-duration: 300ms;
-      transition-duration: 300ms;
-    }
-  }
-  .after\:content-\[\"\"\] {
-    &::after {
-      --tw-content: "";
-      content: var(--tw-content);
     }
   }
   .hover\:-translate-y-0\.5 {
@@ -2261,17 +2192,6 @@
     &:focus {
       --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-    }
-  }
-  .focus\:ring-2 {
-    &:focus {
-      --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
-      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-    }
-  }
-  .focus\:ring-\[\#1F7A6B\] {
-    &:focus {
-      --tw-ring-color: #1F7A6B;
     }
   }
   .focus\:ring-primary\/20 {
@@ -2488,12 +2408,6 @@
   .lg\:px-40 {
     @media (width >= 64rem) {
       padding-inline: calc(var(--spacing) * 40);
-    }
-  }
-  .lg\:text-5xl {
-    @media (width >= 64rem) {
-      font-size: var(--text-5xl);
-      line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
   .lg\:text-7xl {
