@@ -12,48 +12,47 @@
 
 <header></header>
 
-  <section class="relative bg-gray-950 min-h-[95vh] overflow-hidden text-white rounded-b-[40px] shadow-2xl">
-    
+<section class="relative bg-gray-950 min-h-[95vh] overflow-hidden text-white rounded-b-[40px] shadow-2xl">
     <div class="absolute inset-0 z-0">
-      <div id="hero-slider" class="relative w-full h-full">
-        <img src="../public/assets/img/img-home-1.jpg" alt="Bali 1" class="hero-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-        <img src="../public/assets/img/img-home-2.jpg" alt="Bali 2" class="hero-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-        <img src="../public/assets/img/img-home-3.jpg" alt="Bali 3" class="hero-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-      </div>
+        <div id="hero-slider" class="relative w-full h-full">
+            <img src="../public/assets/img/img-home-1.jpg" alt="Bali 1" class="hero-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+            <img src="../public/assets/img/img-home-2.jpg" alt="Bali 2" class="hero-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+            <img src="../public/assets/img/img-home-3.jpg" alt="Bali 3" class="hero-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+        </div>
 
-      <div class="absolute inset-0 bg-hero-overlay"></div>
-      <div class="absolute inset-0 bg-linear-to-b from-black/60 via-transparent to-black/20"></div>
+        <div class="absolute inset-0 bg-hero-overlay"></div>
+        <div class="absolute inset-0 bg-linear-to-b from-black/60 via-transparent to-black/20"></div>
     </div>
 
     <div class="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col min-h-[95vh]">
-
-      <div class="grow flex flex-col justify-center max-w-4xl mt-20">
-        <h2 class="font-animal text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 tracking-wide drop-shadow-2xl">
-          Restoring Bali's Harmony Through <br>
-          Smart Waste Management</span>
-        </h2>
         
-        <p class="text-gray-200 text-base md:text-lg font-light mb-10 max-w-xl leading-relaxed opacity-90">
-          Inspired by <span class="font-semibold italic">Tri Hita Karana</span>, uniting people, nature, and technology to restore balance in Bali.
-        </p>
-        
-        <div class="flex flex-wrap gap-4">
-          <button class="group relative overflow-hidden bg-white text-primary px-8 py-3 rounded-full text-base font-bold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)] active:scale-95">
-            <span class="relative z-10">Laporkan Sampah</span>
-            <div class="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-          </button>
+        <div class="grow flex flex-col justify-center max-w-4xl mt-20">
+            <h2 class="reveal reveal-left font-animal text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 tracking-wide drop-shadow-2xl">
+                Restoring Bali's Harmony Through <br>
+                Smart Waste Management
+            </h2>
+            
+            <p class="reveal reveal-up delay-200 text-gray-200 text-base md:text-lg font-light mb-10 max-w-xl leading-relaxed opacity-90">
+                Inspired by <span class="font-semibold italic">Tri Hita Karana</span>, uniting people, nature, and technology to restore balance in Bali.
+            </p>
+            
+            <div class="reveal reveal-up delay-400 flex flex-wrap gap-4">
+                <button class="group relative overflow-hidden bg-white text-primary px-8 py-3 rounded-full text-base font-bold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)] active:scale-95 cursor-pointer">
+                    <a href="pelaporan.html"><span class="relative z-10">Laporkan Sampah</span></a>
+                    <div class="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                </button>
 
-          <button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-base font-semibold backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 hover:bg-white hover:text-primary hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)] active:scale-95">
-            Lihat Peta Sampah
-          </button>
+                <a href="peta-sampah.html"><button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-base font-semibold backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 hover:bg-white hover:text-primary hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)] active:scale-95 cursor-pointer">
+                    Lihat Peta Sampah
+                </button></a>
+            </div>
         </div>
-      </div>
 
-    <div id="hero-dots" class="pb-10 flex justify-center items-center gap-3">
-      <div class="dot w-8 h-1.5 rounded-full bg-[#1F7A6B] transition-all duration-500 ease-in-out shadow-[0_0_10px_rgba(31,122,107,0.5)]"></div>
-      <div class="dot w-2 h-1.5 rounded-full bg-white/30 transition-all duration-500 ease-in-out hover:bg-white/50 cursor-pointer"></div>
-      <div class="dot w-2 h-1.5 rounded-full bg-white/30 transition-all duration-500 ease-in-out hover:bg-white/50 cursor-pointer"></div>
-    </div>
+        <div id="hero-dots" class="pb-10 flex justify-center items-center gap-3">
+            <div class="dot w-8 h-1.5 rounded-full bg-[#1F7A6B] transition-all duration-500 ease-in-out shadow-[0_0_10px_rgba(31,122,107,0.5)] cursor-pointer"></div>
+            <div class="dot w-2 h-1.5 rounded-full bg-white/30 transition-all duration-500 ease-in-out hover:bg-white/50 cursor-pointer"></div>
+            <div class="dot w-2 h-1.5 rounded-full bg-white/30 transition-all duration-500 ease-in-out hover:bg-white/50 cursor-pointer"></div>
+        </div>
 
     </div>
 </section>
