@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Bali Resik</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="./css/output.css" rel="stylesheet">
+</head>
+<body class="font-poppins bg-slate-50 text-gray-900 min-h-screen flex flex-col">
+
+  <header></header>
+
+  <main class="flex-grow pt-28 pb-20">
+    <div class="container mx-auto px-6 lg:px-12">
+      
+      <div class="max-w-[64rem] mx-auto mb-10 text-center md:text-left">
+         <h1 class="text-3xl md:text-4xl font-semibold text-gray-900">Pengaturan Profil</h1>
+         <p class="text-gray-500 mt-2 text-sm md:text-base">Kelola informasi data diri, keamanan akun, dan pantau rank serta reward kamu.</p>
+      </div>
+
+      <div class="max-w-[64rem] mx-auto flex flex-col md:flex-row gap-8">
+        
+        <!-- Sidebar / Photo / Reward Summary -->
+        <div class="w-full md:w-[320px] shrink-0 flex flex-col gap-6">
+          
+          <!-- Photo Card -->
+          <div class="bg-white rounded-[24px] border border-gray-200/60 shadow-sm p-8 text-center">
+            <div class="relative w-28 h-28 mx-auto mb-5">
+              <div id="profileDropzone" class="w-full h-full rounded-full overflow-hidden border-4 border-bali-50 bg-slate-50 cursor-pointer flex items-center justify-center group relative shadow-md transition-transform hover:scale-105">
+                <img id="profilePreview" src="../public/assets/icon/Icon-User.png" alt="Foto profile" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+              </div>
+              <input type="file" id="profileImageInput" class="hidden" accept="image/png, image/jpeg, image/jpg">
+            </div>
+            <h3 id="profileNameDisplay" class="text-lg font-semibold text-gray-900 leading-tight">Tut Anca</h3>
+            <p class="text-[13px] text-gray-500 mt-1 mb-5">Pejuang Lingkungan</p>
+            
+            <button id="chooseProfileImageBtn" type="button" class="w-full bg-bali-50 text-primary border border-primary/10 px-4 py-2.5 rounded-full text-[13px] font-medium hover:bg-bali-100 transition-colors cursor-pointer">
+              Ubah Foto
+            </button>
+          </div>
+
+          <!-- Reward Stats -->
+          <div class="bg-[#10685B] rounded-[24px] shadow-sm p-6 text-white relative overflow-hidden">
+             <!-- Background pattern -->
+             <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full border-[6px] border-white/10 opacity-60"></div>
+             <div class="absolute -bottom-8 -left-8 w-24 h-24 rounded-full border-[6px] border-white/10 opacity-60"></div>
+             
+             <p class="text-white/80 text-xs font-medium mb-1 relative z-10">Total Poin</p>
+             <h4 class="text-4xl font-bold mb-5 relative z-10">1,250</h4>
+
+             <div class="grid grid-cols-2 gap-4 relative z-10 border-t border-white/20 pt-4 mt-2">
+               <div>
+                  <p class="text-white/70 text-[11px] font-medium mb-1">Aksi Selesai</p>
+                  <p class="text-xl font-semibold">12</p>
+               </div>
+               <div>
+                  <p class="text-white/70 text-[11px] font-medium mb-1">Badge Aktif</p>
+                  <p class="text-xl font-semibold text-warning">3</p>
+               </div>
+             </div>
+          </div>
+        </div>
+
+        <!-- Form Area -->
+        <div class="flex-1 bg-white rounded-[24px] border border-gray-200/60 shadow-sm p-6 md:p-10">
+          
+          <form id="profileForm" class="space-y-8">
+            <!-- Section 1 -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-6">Informasi Akun</h3>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-[13px] font-medium text-gray-600 mb-2 ml-1">Username</label>
+                  <input type="text" id="usernameInput" value="Tut Anca" class="w-full h-12 rounded-2xl border border-gray-200 bg-gray-50/50 px-4 text-sm text-gray-800 outline-none focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all">
+                </div>
+
+                <div>
+                  <label class="block text-[13px] font-medium text-gray-600 mb-2 ml-1">Email Saat Ini</label>
+                  <input type="email" value="emailkamu@gmail.com" class="w-full h-12 rounded-2xl border border-gray-200 bg-gray-50/50 px-4 text-sm text-gray-800 outline-none focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all">
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-6 mt-10">Keamanan</h3>
+              
+              <div class="space-y-6">
+                <div class="w-full md:w-1/2 md:pr-3">
+                  <label class="block text-[13px] font-medium text-gray-600 mb-2 ml-1">Password Lama</label>
+                  <input type="password" placeholder="Masukkan password saat ini" class="w-full h-12 rounded-2xl border border-gray-200 bg-gray-50/50 px-4 text-sm text-gray-800 outline-none focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-[13px] font-medium text-gray-600 mb-2 ml-1">Password Baru</label>
+                    <input type="password" placeholder="Buat password baru" class="w-full h-12 rounded-2xl border border-gray-200 bg-gray-50/50 px-4 text-sm text-gray-800 outline-none focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all">
+                  </div>
+
+                  <div>
+                    <label class="block text-[13px] font-medium text-gray-600 mb-2 ml-1">Konfirmasi Password Baru</label>
+                    <input type="password" placeholder="Ketik ulang password baru" class="w-full h-12 rounded-2xl border border-gray-200 bg-gray-50/50 px-4 text-sm text-gray-800 outline-none focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-8 mt-10 border-t border-gray-100 flex justify-end">
+              <button id="saveProfileBtn" type="submit" class="bg-[#10685B] text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-bali-700 transition duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto text-center cursor-pointer">
+                Simpan Perubahan
+              </button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="../src/js/navbar.js"></script>
+  <script src="../src/js/components.js"></script>
+  <script src="../src/js/profile.js"></script>
+  <script>
+    initLayout('type1');
+    initNavbarScroll('type1');
+  </script>
+</body>
+</html>

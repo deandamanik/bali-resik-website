@@ -4,81 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pelaporan Sampah - Bali Resik</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="./css/output.css" rel="stylesheet">
 
   <style>
-    .navbar-scrolled {
-      background: rgba(7, 24, 22, 0.92);
-      backdrop-filter: blur(14px);
-    }
+  .reward-overlay.open {
+    opacity: 1 !important;
+    pointer-events: all !important;
+  }
 
-    .report-dark-bg {
-      background:
-        radial-gradient(circle at top left, rgba(20, 199, 179, 0.08), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.06), transparent 25%),
-        linear-gradient(180deg, #02110f 0%, #041917 100%);
-    }
+  .reward-modal {
+    transition: transform 0.28s ease, opacity 0.28s ease;
+  }
 
-    .ai-panel {
-      background: linear-gradient(180deg, rgba(5, 24, 21, 0.96) 0%, rgba(6, 28, 25, 0.96) 100%);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-    }
+  .reward-overlay.open .reward-modal {
+    transform: translateY(0) scale(1) !important;
+  }
 
-    .ai-card {
-      background: rgba(8, 30, 27, 0.96);
-    }
+  .rm-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.55s ease 0.15s;
+  }
 
-    .ai-card-orange {
-      background: linear-gradient(180deg, rgba(32, 20, 10, 0.96) 0%, rgba(42, 24, 12, 0.96) 100%);
-    }
+  .reward-modal.green {
+    background: linear-gradient(180deg, #ffffff 0%, #f6fbfa 100%);
+    border: 1px solid rgba(16, 104, 91, 0.14);
+    box-shadow: 0 32px 64px rgba(16, 104, 91, 0.14);
+  }
 
-    .ai-outline {
-      border: 1px solid rgba(20, 199, 163, 0.14);
-    }
+  .reward-modal.green .rm-accent {
+    background: rgba(16, 104, 91, 0.08);
+    color: #10685b;
+    border: 1px solid rgba(16, 104, 91, 0.12);
+  }
 
-    .ai-outline-orange {
-      border: 1px solid rgba(249, 115, 22, 0.18);
-    }
+  .reward-modal.green .rm-points {
+    color: #10685b;
+  }
 
-    .volume-btn.active {
-      border-color: #10685B;
-      background: #eaf6f3;
-      color: #10685B;
-    }
+  .reward-modal.green .rm-confirm {
+    background: #10685b;
+    color: #ffffff;
+  }
 
-    .upload-preview-active {
-      border-style: solid;
-      border-color: rgba(16, 104, 91, 0.2);
-      background: #f3faf8;
-      padding: 0;
-      overflow: hidden;
-    }
+  .reward-modal.green .rm-confirm:hover {
+    background: #0c5548;
+  }
 
-    .upload-preview-active img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-  </style>
-  
+  .reward-modal.green .rm-bar {
+    background: rgba(16, 104, 91, 0.12);
+  }
+
+  .reward-modal.green .rm-bar-fill {
+    background: #10685b;
+  }
+
+  .reward-modal.amber {
+    background: linear-gradient(180deg, #ffffff 0%, #fff8f2 100%);
+    border: 1px solid rgba(217, 119, 6, 0.16);
+    box-shadow: 0 32px 64px rgba(180, 90, 10, 0.12);
+  }
+
+  .reward-modal.amber .rm-accent {
+    background: rgba(217, 119, 6, 0.08);
+    color: #b45309;
+    border: 1px solid rgba(217, 119, 6, 0.14);
+  }
+
+  .reward-modal.amber .rm-points {
+    color: #b45309;
+  }
+
+  .reward-modal.amber .rm-confirm {
+    background: linear-gradient(90deg, #d97706, #f97316);
+    color: #ffffff;
+  }
+
+  .reward-modal.amber .rm-confirm:hover {
+    filter: brightness(1.06);
+  }
+
+  .reward-modal.amber .rm-bar {
+    background: rgba(217, 119, 6, 0.12);
+  }
+
+  .reward-modal.amber .rm-bar-fill {
+    background: #d97706;
+  }
+</style>
 </head>
 <body class="font-poppins bg-bali-50 text-gray-900">
 
   <header></header>
 
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <section class="relative bg-gray-950 min-h-[92vh] overflow-hidden text-white rounded-b-[40px] shadow-2xl">
     <div class="absolute inset-0 z-0">
-      <img
-        src="../public/assets/img/pelaporan/hero-pelaporan-img.png"
-        alt="Pelaporan Sampah"
-        class="w-full h-full object-cover opacity-70"
-      >
+      <img src="../public/assets/img/pelaporan/hero-pelaporan-img.png" alt="Pelaporan Sampah" class="w-full h-full object-cover opacity-70">
       <div class="absolute inset-0 bg-hero-overlay"></div>
       <div class="absolute inset-0 bg-linear-to-b from-black/60 via-black/20 to-black/30"></div>
     </div>
@@ -86,24 +111,20 @@
     <div class="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col min-h-[92vh]">
       <div class="grow flex items-center justify-center pt-28 pb-16">
         <div class="max-w-3xl text-center">
-          <p class="font-animal text-4xl md:text-8xl text-white/95 leading-tight mb-6">Pelaporan Sampah</p>
-
-          <p class="text-gray-200 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed opacity-90">
+          <p class="font-animal text-4xl md:text-8xl lg:text-9xl text-white/95 leading-tight mb-6 reveal reveal-up delay-100">Pelaporan Sampah</p>
+          <p class="text-gray-200 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed opacity-90 reveal reveal-up delay-200">
             Unggah foto sampah, isi lokasi secara manual, dapatkan klasifikasi AI, dan pilih aksi terbaik untuk menangani laporanmu.
           </p>
-
-          <div class="mt-10 flex flex-wrap gap-4 justify-center">
+          <div class="mt-10 flex flex-wrap gap-4 justify-center reveal reveal-up delay-300">
             <div class="min-w-35 rounded-2xl border border-white/35 bg-white/10 px-6 py-4 backdrop-blur-sm shadow-lg">
               <p class="text-3xl font-bold text-white">4,891</p>
               <p class="text-sm text-white/80 mt-1">Total Laporan</p>
             </div>
-
             <div class="min-w-35 rounded-2xl border border-white/35 bg-white/10 px-6 py-4 backdrop-blur-sm shadow-lg">
               <p class="text-3xl font-bold text-white">+320</p>
               <p class="text-sm text-white/80 mt-1">Warga Aktif</p>
             </div>
-
-            <div class="min -w-[140px] rounded-2xl border border-white/35 bg-white/10 px-6 py-4 backdrop-blur-sm shadow-lg">
+            <div class="min-w-35 rounded-2xl border border-white/35 bg-white/10 px-6 py-4 backdrop-blur-sm shadow-lg">
               <p class="text-3xl font-bold text-white">92%</p>
               <p class="text-sm text-white/80 mt-1">Terselesaikan</p>
             </div>
@@ -113,25 +134,21 @@
     </div>
   </section>
 
-  <!-- FORM LAPORAN -->
-  <section class="py-20 bg-white">
+  <!-- ===== FORM LAPORAN ===== -->
+  <section class="py-20 bg-white reveal reveal-up delay-100">
     <div class="container mx-auto px-6 lg:px-12">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal reveal-up delay-200">
         <h2 class="text-4xl md:text-5xl font-medium text-gray-900 mb-3">Form Laporan Sampah</h2>
         <p class="text-gray-500 text-base">Isi informasi berikut untuk melaporkan sampah</p>
       </div>
 
-      <div class="max-w-5xl mx-auto rounded-3xl border border-primary/20 shadow-sm overflow-hidden bg-white">
+      <div class="max-w-5xl mx-auto rounded-3xl border border-primary/20 shadow-sm overflow-hidden bg-white reveal reveal-up delay-300">
         <div class="grid grid-cols-1 lg:grid-cols-2">
 
-          <!-- LEFT -->
+          <!-- Foto Sampah -->
           <div class="p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-primary/15">
             <h3 class="text-2xl font-bold text-gray-900 mb-5">Foto Sampah</h3>
-
-            <div
-              id="dropzone"
-              class="rounded-2xl border-2 border-dashed border-primary/50 bg-bali-50 min-h-80 flex flex-col items-center justify-center text-center px-6 transition-all duration-200 cursor-pointer"
-            >
+            <div id="dropzone" class="rounded-2xl border-2 border-dashed border-primary/50 bg-bali-50 min-h-80 flex flex-col items-center justify-center text-center px-6 transition-all duration-300 cursor-pointer hover:bg-bali-100/40 hover:border-primary">
               <div id="uploadPlaceholder" class="flex flex-col items-center justify-center">
                 <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm mb-4">
                   <img src="../public/assets/icon/icon-upload.png" alt="Upload" class="h-8 w-8 object-contain">
@@ -139,520 +156,565 @@
                 <p class="text-base font-semibold text-gray-800">Klik atau drag foto ke sini</p>
                 <p class="mt-1 text-sm text-gray-400">PNG, JPG max 10MB</p>
               </div>
-
               <img id="previewImage" class="hidden w-full h-full object-cover rounded-2xl" alt="Preview Foto Sampah">
             </div>
-
             <div class="mt-5">
-              <button
-                id="choosePhotoBtn"
-                type="button"
-                class="bg-primary text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-bali-700 transition shadow-md"
-              >
-                Pilih Foto
-              </button>
+              <button id="choosePhotoBtn" type="button" class="bg-primary text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-bali-700 transition-all duration-300 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-0.5">Pilih Foto</button>
               <input type="file" id="fileInput" class="hidden" accept="image/png, image/jpeg, image/jpg">
             </div>
           </div>
 
-          <!-- RIGHT -->
+          <!-- Detail Laporan -->
           <div class="p-6 lg:p-8 flex flex-col gap-5">
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-2">Lokasi</label>
-              <input
-                id="lokasiInput"
-                type="text"
-                class="w-full h-11 rounded-2xl border border-gray-200 px-4 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition"
-                placeholder="Masukkan lokasi sampah"
-              >
+              <input id="lokasiInput" type="text" class="w-full h-11 rounded-2xl border border-gray-200 px-4 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition" placeholder="Masukkan lokasi sampah">
               <p class="mt-1.5 text-xs text-gray-400">Isi lokasi secara manual sesuai titik temuan</p>
             </div>
-
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-2">Kategori Sampah</label>
-              <input
-                id="kategoriInput"
-                type="text"
-                class="w-full h-11 rounded-2xl border border-gray-200 px-4 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition"
-                placeholder="Contoh: Plastik, Organik, B3"
-              >
+              <input id="kategoriInput" type="text" class="w-full h-11 rounded-2xl border border-gray-200 px-4 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition" placeholder="Contoh: Plastik, Organik, B3">
             </div>
-
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-2">Estimasi Volume</label>
               <div class="grid grid-cols-3 gap-3">
-                <button type="button" class="volume-btn h-11 rounded-2xl border border-gray-200 text-sm text-gray-600 hover:border-primary hover:text-primary transition font-medium">Kecil</button>
-                <button type="button" class="volume-btn h-11 rounded-2xl border border-gray-200 text-sm text-gray-600 hover:border-primary hover:text-primary transition font-medium">Sedang</button>
-                <button type="button" class="volume-btn h-11 rounded-2xl border border-gray-200 text-sm text-gray-600 hover:border-primary hover:text-primary transition font-medium">Besar</button>
+                <button type="button" class="volume-btn h-11 rounded-2xl border border-gray-200 text-sm text-gray-600 hover:border-primary hover:text-primary transition-all duration-300 font-medium cursor-pointer hover:bg-bali-50">Kecil</button>
+                <button type="button" class="volume-btn h-11 rounded-2xl border border-gray-200 text-sm text-gray-600 hover:border-primary hover:text-primary transition-all duration-300 font-medium cursor-pointer hover:bg-bali-50">Sedang</button>
+                <button type="button" class="volume-btn h-11 rounded-2xl border border-gray-200 text-sm text-gray-600 hover:border-primary hover:text-primary transition-all duration-300 font-medium cursor-pointer hover:bg-bali-50">Besar</button>
               </div>
             </div>
-
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-2">
                 Catatan Tambahan <span class="font-normal text-gray-400">(opsional)</span>
               </label>
-              <textarea
-                id="catatanInput"
-                rows="4"
-                class="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 resize-none transition"
-                placeholder="Deskripsikan kondisi sampah lebih detail..."
-              ></textarea>
+              <textarea id="catatanInput" rows="4" class="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 resize-none transition" placeholder="Deskripsikan kondisi sampah lebih detail..."></textarea>
             </div>
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-bali-50 px-6 py-4 border-t border-primary/15">
+        <!-- Footer Form -->
+        <div id="formFooter" class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-bali-50 px-6 py-4 border-t border-primary/15">
           <div class="flex items-center gap-2.5 text-sm text-gray-500">
             <img src="../public/assets/icon/icon-information.png" alt="Info" class="w-5 h-5 shrink-0">
             <p>Data terenkripsi & dilindungi privasi</p>
           </div>
-
-          <button
-            id="analyzeBtn"
-            type="button"
-            class="bg-primary text-white flex items-center justify-center gap-2 px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-bali-700 transition shadow-lg"
-          >
+          <button id="analyzeBtn" type="button" class="bg-primary text-white flex items-center justify-center gap-2 px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-bali-700 transition-all duration-300 shadow-lg cursor-pointer hover:shadow-xl hover:-translate-y-0.5">
             Kirim & Analisis AI
             <img src="../public/assets/icon/icon-right-arrow.png" alt="Arrow" class="w-4 h-4">
           </button>
         </div>
+
+        <!-- Loading State -->
+        <div id="formLoading" class="hidden bg-bali-50 px-6 py-5 border-t border-primary/15">
+          <div class="flex items-center justify-between mb-2">
+            <p id="loadingText" class="text-sm text-gray-600 font-medium">Menganalisis gambar...</p>
+            <span class="text-xs text-primary font-semibold">AI Processing</span>
+          </div>
+          <div class="h-2 rounded-full bg-gray-200 overflow-hidden">
+            <div id="loadingBar" class="h-full rounded-full bg-primary transition-all duration-500" style="width:0%"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- AI RESULT -->
+  <!-- ===== AI RESULT ===== -->
   <section id="aiResultWrapper" class="hidden pb-20 bg-white">
-    <div class="container mx-auto px-6 lg:px-12 space-y-4">
+  <div class="container mx-auto px-6 lg:px-12 space-y-8">
 
-      <!-- AI KLASIFIKASI -->
-      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-2 fade-up pt-10">
-        <div>
-          <div class="flex items-center gap-2.5 mb-3">
-            <div class="flex items-center gap-1.5">
-              <span class="pulse-dot w-2 h-2 rounded-full bg-primary inline-block"></span>
-              <span class="text-[10px] uppercase tracking-[0.32em] text-primary font-bold">Step 02 — Intelligence Layer</span>
-            </div>
-          </div>
-          <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 leading-tight">Klasifikasi Otomatis AI</h2>
-          <p class="mt-2 text-sm text-gray-500 max-w-md">Sistem menganalisis laporanmu dan memberi rekomendasi tindakan terbaik secara real-time.</p>
-        </div>
-        <div id="aiScoreBadge" class="inline-flex items-center gap-2.5 bg-primary/10 border border-primary/20 text-primary rounded-full px-4 py-2.5 text-xs font-semibold shrink-0">
-          <span class="pulse-dot w-2 h-2 rounded-full bg-primary"></span>
-          Analisis Selesai &bull; Confidence <span id="aiScore" class="font-bold ml-1">90%</span>
-        </div>
+    <!-- Header -->
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-4 pt-10 reveal reveal-up">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 leading-tight">
+          Klasifikasi otomatis AI
+        </h2>
+        <p class="mt-2 text-sm md:text-base text-gray-500 max-w-xl leading-relaxed">
+          Sistem menganalisis laporanmu dan memberikan rekomendasi tindakan berdasarkan kategori, volume, lokasi, dan tingkat risiko.
+        </p>
       </div>
 
-      <!-- MAIN GRID -->
-      <div class="max-w-6xl mx-auto grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-5 mb-8">
-
-        <!-- LEFT PANEL -->
-        <div class="bg-white border border-primary/20 shadow-sm rounded-[26px] p-6 lg:p-7 flex flex-col gap-5 fade-up-2">
-
-          <!-- Ticket + badges -->
-          <div class="flex flex-wrap items-center gap-2.5">
-            <div class="bg-bali-50 border border-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-medium">
-              Laporan&nbsp;<span id="ticketIdText" class="font-bold">BR-2026-21644</span>
-            </div>
-            <div id="riskoBadge" class="rounded-full px-3 py-1.5 text-xs font-semibold bg-success/10 border border-success/20 text-success">
-              Risiko Rendah
-            </div>
-            <div class="rounded-full px-3 py-1.5 text-xs font-medium bg-gray-50 border border-gray-200 text-gray-500">
-              <span id="confidenceText">90%</span> confidence
-            </div>
-          </div>
-
-          <!-- 4 stat boxes -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="rounded-2xl p-4 bg-bali-50 border border-primary/10">
-              <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Jenis</p>
-              <p id="resultKategori" class="text-xl font-bold text-gray-900 leading-tight">—</p>
-            </div>
-            <div class="rounded-2xl p-4 bg-bali-50 border border-primary/10">
-              <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Volume</p>
-              <p id="resultVolume" class="text-xl font-bold text-warning leading-tight">—</p>
-            </div>
-            <div class="rounded-2xl p-4 bg-bali-50 border border-primary/10">
-              <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Risiko</p>
-              <p id="resultRisiko" class="text-xl font-bold text-success leading-tight">Rendah</p>
-            </div>
-            <div class="rounded-2xl p-4 bg-bali-50 border border-primary/10">
-              <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Urgensi</p>
-              <p id="resultUrgency" class="text-xl font-bold text-gray-900 leading-tight">—</p>
-            </div>
-          </div>
-
-          <!-- AI Recommendation -->
-          <div class="bg-primary/5 border border-primary/20 rounded-2xl p-5">
-            <div class="flex items-center gap-2 mb-3">
-              <div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
-                <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
-              </div>
-              <p class="text-[10px] uppercase tracking-[0.25em] text-primary font-bold">Rekomendasi AI</p>
-            </div>
-            <p id="resultRecommendation" class="text-sm leading-relaxed text-gray-700">—</p>
-          </div>
-
-          <!-- Lokasi + foto preview side by side -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="rounded-2xl p-4 bg-bali-50 border border-primary/10">
-              <div class="flex items-center gap-1.5 mb-2">
-                <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/></svg>
-                <p class="text-[10px] text-gray-500 uppercase tracking-wider">Lokasi</p>
-              </div>
-              <p id="resultLokasi" class="text-sm font-medium text-gray-800">—</p>
-            </div>
-            <div id="aiImgBox" class="hidden rounded-2xl overflow-hidden relative border border-primary/10" style="min-height:80px;">
-              <img id="aiPreviewImg" class="w-full h-full object-cover" alt="Foto sampah">
-              <div class="absolute inset-0 pointer-events-none"><div class="scan-line"></div></div>
-              <div class="absolute bottom-2 left-2 text-[9px] font-bold text-primary bg-white/90 px-2 py-0.5 rounded-full tracking-wider backdrop-blur-sm shadow-sm">✓ AI VERIFIED</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT PANEL -->
-        <div class="flex flex-col gap-4 fade-up-3">
-
-          <!-- Profil Sampah bars -->
-          <div class="bg-white border border-primary/20 shadow-sm rounded-[22px] p-5">
-            <p class="text-[10px] uppercase tracking-[0.25em] text-primary font-bold mb-5">Profil Sampah</p>
-            <div class="space-y-4">
-              <div>
-                <div class="flex justify-between text-xs text-gray-600 mb-2">
-                  <span id="dominantLabel">Komposisi Utama</span>
-                  <span id="dominantPercent" class="text-gray-900 font-semibold">—</span>
-                </div>
-                <div class="h-1.5 rounded-full overflow-hidden bg-gray-200">
-                  <div id="dominantBar" class="h-full rounded-full bar-anim bg-primary" style="width:0%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-gray-600 mb-2">
-                  <span>Dampak Visual</span>
-                  <span id="impactPercent" class="text-gray-900 font-semibold">—</span>
-                </div>
-                <div class="h-1.5 rounded-full overflow-hidden bg-gray-200">
-                  <div id="impactBar" class="h-full rounded-full bar-anim bg-info" style="width:0%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-gray-600 mb-2">
-                  <span>Est. Jarak TPS</span>
-                  <span id="distanceText" class="text-gray-900 font-semibold">—</span>
-                </div>
-                <div class="h-1.5 rounded-full overflow-hidden bg-gray-200">
-                  <div id="distanceBar" class="h-full rounded-full bar-anim bg-warning" style="width:0%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Aksi yang Direkomendasikan -->
-          <div class="bg-white border border-primary/20 shadow-sm rounded-[22px] p-5">
-            <p class="text-[10px] uppercase tracking-[0.25em] text-primary font-bold mb-4">Rekomendasi Oleh AI</p>
-            <div class="space-y-3">
-              <div class="flex items-start gap-3">
-                <div class="w-5 h-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-2.5 h-2.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <p id="actionHint1" class="text-sm text-gray-700 leading-relaxed">Prioritaskan pengumpulan di 1 titik aman</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="w-5 h-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-2.5 h-2.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <p id="actionHint2" class="text-sm text-gray-700 leading-relaxed">Kumpulkan lalu bawa ke TPS terdekat</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="w-5 h-5 rounded-full bg-warning/15 border border-warning/25 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-2.5 h-2.5 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01"/></svg>
-                </div>
-                <p id="actionHint3" class="text-sm text-gray-700 leading-relaxed">Lapor bila TPS terlalu jauh atau area berbahaya</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Reward -->
-          <div class="bg-orange-50 border border-orange-200 shadow-sm rounded-[22px] p-5">
-            <p class="text-[10px] uppercase tracking-[0.25em] text-warning font-bold mb-3">Pratinjau Hadiah</p>
-            <div class="flex items-end justify-between">
-              <div>
-                <p id="rewardPreview" class="text-4xl font-bold text-warning glow-teal">+200</p>
-                <p class="text-xs text-amber-700 mt-1 font-medium">Poin jika aksi mandiri selesai</p>
-              </div>
-              <div class="w-10 h-10 rounded-xl bg-warning/15 flex items-center justify-center">
-                <svg class="w-5 h-5 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="inline-flex items-center gap-2 rounded-full bg-bali-50 border border-primary/15 text-primary px-4 py-2 text-sm font-medium">
+        Analisis selesai
+        <span id="aiScore" class="font-semibold">90%</span>
       </div>
-
-      <!-- ACTION -->
-      <div class="max-w-6xl mx-auto bg-white rounded-3xl border border-primary/15 shadow-sm px-6 lg:px-10 py-10 mt-4">
-        <div class="text-center mb-10">
-          <p class="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-bold mb-3">Step 03 — Full Action</p>
-          <h2 class="text-3xl md:text-5xl font-semibold text-gray-900 leading-tight">
-            Apa yang ingin kamu lakukan dengan sampah ini?
-          </h2>
-          <p class="text-gray-500 text-sm mt-3">Pilih aksi terbaik berdasarkan analisis AI</p>
-        </div>
-
-        <!-- Two action cards -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-          <!-- CARD A — Sendiri (green) -->
-          <div class="bg-linear-to-br from-[#f0faf8] to-[#e6f7f3] border-[1.5px] border-primary/20 hover:border-primary/40 hover:-translate-y-0.5 rounded-[28px] p-6 lg:p-7 flex flex-col cursor-pointer transition-all duration-200 shadow-sm">
-            <!-- Card header -->
-            <div class="flex items-start justify-between gap-4 mb-6">
-              <div>
-                <div class="inline-flex items-center gap-2 bg-primary/10 rounded-full px-3 py-1.5 mb-3">
-                  <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-                  <span class="text-xs font-bold text-primary">Aksi Mandiri</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900">Saya akan bersihkan sendiri</h3>
-                <p class="text-sm text-gray-500 mt-1">Cocok untuk risiko rendah &amp; area yang aman</p>
-              </div>
-              <div class="shrink-0 text-right bg-white rounded-2xl px-4 py-3 shadow-sm border border-primary/10">
-                <p class="text-[10px] text-primary/60 font-semibold uppercase tracking-wider">Reward</p>
-                <p id="selfReward" class="text-2xl font-bold text-primary">+200</p>
-                <p class="text-[10px] text-gray-400">poin</p>
-              </div>
-            </div>
-
-            <!-- Steps -->
-            <div class="flex flex-col gap-4 mb-6 flex-1">
-              <div class="step-item">
-                <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                  <span class="text-[11px] font-bold text-white">1</span>
-                </div>
-                <div class="bg-white rounded-2xl border border-primary/10 px-4 py-3.5 flex-1 shadow-sm">
-                  <p class="text-sm font-semibold text-gray-800">Panduan AI</p>
-                  <p id="selfGuide" class="text-xs text-gray-500 mt-1 leading-relaxed">Gunakan sarung tangan, kumpulkan ke satu titik aman sebelum dibawa ke TPS.</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="w-6 h-6 rounded-full bg-primary/80 flex items-center justify-center shrink-0 mt-0.5">
-                  <span class="text-[11px] font-bold text-white">2</span>
-                </div>
-                <div class="bg-white rounded-2xl border border-primary/10 px-4 py-3.5 flex-1 shadow-sm">
-                  <p class="text-sm font-semibold text-gray-800">Timer Misi</p>
-                  <p class="text-xs text-gray-500 mt-1">30 menit untuk menyelesaikan proses pembersihan</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="w-6 h-6 rounded-full bg-primary/60 flex items-center justify-center shrink-0 mt-0.5">
-                  <span class="text-[11px] font-bold text-white">3</span>
-                </div>
-                <div class="bg-white rounded-2xl border border-primary/10 px-4 py-3.5 flex-1 shadow-sm">
-                  <p class="text-sm font-semibold text-gray-800">Upload Bukti</p>
-                  <p class="text-xs text-gray-500 mt-1">Unggah foto sesudah area dibersihkan untuk validasi</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="w-6 h-6 rounded-full bg-primary/40 flex items-center justify-center shrink-0 mt-0.5">
-                  <span class="text-[11px] font-bold text-white">4</span>
-                </div>
-                <div class="bg-white rounded-2xl border border-primary/10 px-4 py-3.5 flex-1 shadow-sm">
-                  <p class="text-sm font-semibold text-gray-800">Hadiah Otomatis</p>
-                  <p class="text-xs text-gray-500 mt-1">Poin pribadi + kontribusi poin desa ditambahkan otomatis</p>
-                </div>
-              </div>
-            </div>
-
-            <button type="button" class="btn-shine w-full rounded-full bg-primary py-3.5 text-sm font-semibold text-white hover:bg-bali-700 transition shadow-md">
-              Mulai Aksi Bersih
-            </button>
-          </div>
-
-          <!-- CARD B — Petugas (amber) -->
-          <div class="bg-linear-to-br from-[#fffbf0] to-[#fef3d0] border-[1.5px] border-amber-200 hover:border-amber-400 hover:-translate-y-0.5 rounded-[28px] p-6 lg:p-7 flex flex-col cursor-pointer transition-all duration-200 shadow-sm">
-            <!-- Card header -->
-            <div class="flex items-start justify-between gap-4 mb-6">
-              <div>
-                <div class="inline-flex items-center gap-2 bg-amber-100 rounded-full px-3 py-1.5 mb-3">
-                  <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                  <span class="text-xs font-bold text-amber-700">Lapor Petugas</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900">Lapor ke petugas</h3>
-                <p class="text-sm text-gray-500 mt-1">Direkomendasikan bila risiko sedang atau tinggi</p>
-              </div>
-              <div class="shrink-0 text-right bg-white rounded-2xl px-4 py-3 shadow-sm border border-amber-200">
-                <p class="text-[10px] text-amber-600 font-semibold uppercase tracking-wider">Reward</p>
-                <p id="reportReward" class="text-2xl font-bold text-warning">+50</p>
-                <p class="text-[10px] text-gray-400">poin</p>
-              </div>
-            </div>
-
-            <!-- Steps -->
-            <div class="flex flex-col gap-4 mb-6 flex-1">
-              <div class="step-item step-item-amber">
-                <div class="w-6 h-6 rounded-full bg-warning flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                  <span class="text-[11px] font-bold text-white">1</span>
-                </div>
-                <div class="bg-white rounded-2xl border border-amber-200 px-4 py-3.5 flex-1 shadow-sm">
-                  <p class="text-sm font-semibold text-gray-800">Urgensi Penilaian AI</p>
-                  <p id="reportGuide1" class="text-xs text-gray-500 mt-1 leading-relaxed">Skor urgensi dihitung otomatis dan dialihkan ke petugas lokal</p>
-                </div>
-              </div>
-              <div class="step-item step-item-amber">
-                <div class="w-6 h-6 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5">
-                  <span class="text-[11px] font-bold text-white">2</span>
-                </div>
-                <div class="bg-white rounded-2xl border border-amber-200 px-4 py-3.5 flex-1 shadow-sm">
-                  <p class="text-sm font-semibold text-gray-800">Perutean Otomatis</p>
-                  <p id="reportGuide2" class="text-xs text-gray-500 mt-1">Diteruskan ke petugas desa / dinas terkait secara otomatis</p>
-                </div>
-              </div>
-              <div class="step-item step-item-amber">
-                <div class="w-6 h-6 rounded-full bg-amber-300 flex items-center justify-center shrink-0 mt-0.5">
-                  <span class="text-[11px] font-bold text-white">3</span>
-                </div>
-                <div class="bg-white rounded-2xl border border-amber-200 px-4 py-3.5 flex-1 shadow-sm">
-                  <p class="text-sm font-semibold text-gray-800">Tiket &amp; Eskalasi</p>
-                  <p class="text-xs text-gray-500 mt-1">Tiket dibuat otomatis dan bisa dilacak progresnya</p>
-                </div>
-              </div>
-              <div class="step-item step-item-amber">
-                <div class="w-6 h-6 rounded-full bg-amber-200 flex items-center justify-center shrink-0 mt-0.5">
-                  <span class="text-[11px] font-bold text-amber-700">4</span>
-                </div>
-                <div class="bg-white rounded-2xl border border-amber-200 px-4 py-3.5 flex-1 shadow-sm">
-                  <p class="text-sm font-semibold text-gray-800">Pelacakan Langsung</p>
-                  <p class="text-xs text-gray-500 mt-1">Pantau progres penanganan langsung dari sistem pelaporan</p>
-                </div>
-              </div>
-            </div>
-
-            <button type="button" class="btn-shine w-full rounded-full py-3.5 text-sm font-semibold text-white hover:brightness-110 transition shadow-md bg-linear-to-r from-warning to-orange-400">
-              Kirim ke Petugas
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="py-20 bg-bali-50">
-  <div class="container mx-auto px-6 lg:px-12">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <h2 class="text-4xl md:text-5xl font-medium text-gray-900 mb-3">Status Laporan Aktif</h2>
-      <p class="text-gray-500 text-base">Pantau progres penanganan sampah secara real-time</p>
     </div>
 
-    <div class="max-w-5xl mx-auto bg-white border border-gray-200 rounded-3xl shadow-sm p-6 lg:p-8">
-      <div class="grid grid-cols-1 xl:grid-cols-[1.3fr_0.7fr] gap-6">
-        <div class="space-y-5">
-          <div class="rounded-2xl border border-primary/20 bg-bali-50 p-5">
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-              <div>
-                <div class="flex flex-wrap items-center gap-3">
-                  <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">Ticket #BR-2041</span>
-                  <span class="px-3 py-1 rounded-full bg-warning/10 text-warning text-xs font-semibold">Sedang Diproses</span>
-                </div>
+    <!-- Main layout -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 reveal reveal-up delay-100">
 
-                <h3 class="mt-4 text-2xl font-bold text-gray-900">Tumpukan sampah plastik dekat trotoar Kuta</h3>
-                <p class="mt-2 text-gray-500">Dilaporkan 12 menit lalu • Kategori plastik • Volume sedang</p>
-              </div>
-
-              <div class="bg-white rounded-2xl px-4 py-3 shadow-sm">
-                <p class="text-xs text-gray-400">Estimasi selesai</p>
-                <p class="mt-1 text-sm font-semibold text-gray-700">± 35 menit</p>
-              </div>
-            </div>
-
-            <div class="mt-6">
-              <div class="flex items-center justify-between mb-2 text-sm">
-                <span class="text-gray-600 font-medium">Progress Penanganan</span>
-                <span class="text-primary font-semibold">65%</span>
-              </div>
-              <div class="h-3 rounded-full bg-gray-200 overflow-hidden">
-                <div class="h-full w-[65%] rounded-full bg-primary"></div>
-              </div>
-            </div>
+      <!-- Left -->
+      <div class="bg-white border border-primary/15 rounded-[28px] shadow-sm p-6 lg:p-7 reveal reveal-left delay-200">
+        <div class="flex flex-wrap items-center gap-2 mb-5">
+          <div class="rounded-full bg-bali-50 border border-primary/15 px-3 py-1.5 text-xs font-medium text-primary">
+            Laporan <span id="ticketIdText" class="font-semibold">BR-2026-21644</span>
           </div>
 
-          <div class="rounded-2xl border border-gray-200 bg-white p-5">
-            <div class="flex flex-wrap items-center gap-3 mb-6">
-              <span class="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-semibold">AI Tervalidasi</span>
-              <span class="px-3 py-1 rounded-full bg-info/10 text-info text-xs font-semibold">Petugas Ditugaskan</span>
-            </div>
+          <div id="riskoBadge" class="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1.5 text-xs font-medium text-emerald-600">
+            Risiko rendah
+          </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div class="rounded-2xl bg-bali-50 p-4">
-                <p class="text-xs text-gray-400">1</p>
-                <p class="mt-2 font-semibold text-gray-900">Laporan Masuk</p>
-              </div>
-
-              <div class="rounded-2xl bg-bali-50 p-4">
-                <p class="text-xs text-gray-400">2</p>
-                <p class="mt-2 font-semibold text-gray-900">Analisis AI</p>
-              </div>
-
-              <div class="rounded-2xl border-2 border-primary bg-primary/5 p-4">
-                <p class="text-xs text-primary">3</p>
-                <p class="mt-2 font-semibold text-primary">Petugas Bergerak</p>
-              </div>
-
-              <div class="rounded-2xl bg-gray-100 p-4 opacity-70">
-                <p class="text-xs text-gray-400">4</p>
-                <p class="mt-2 font-semibold text-gray-500">Selesai</p>
-              </div>
-            </div>
+          <div class="rounded-full bg-gray-50 border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-500">
+             <span id="confidenceText" class="font-semibold text-gray-700">90%</span>
           </div>
         </div>
 
-        <div class="rounded-2xl bg-gray-950 p-6 text-white shadow-xl">
-          <div class="flex items-center justify-between">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="rounded-2xl bg-bali-50 border border-primary/10 p-4">
+            <p class="text-xs text-gray-500 mb-2">Jenis sampah</p>
+            <p id="resultKategori" class="text-lg font-semibold text-gray-900">—</p>
+          </div>
+
+          <div class="rounded-2xl bg-bali-50 border border-primary/10 p-4">
+            <p class="text-xs text-gray-500 mb-2">Volume</p>
+            <p id="resultVolume" class="text-lg font-semibold text-warning">—</p>
+          </div>
+
+          <div class="rounded-2xl bg-bali-50 border border-primary/10 p-4">
+            <p class="text-xs text-gray-500 mb-2">Risiko</p>
+            <p id="resultRisiko" class="text-lg font-semibold text-success">Rendah</p>
+          </div>
+
+          <div class="rounded-2xl bg-bali-50 border border-primary/10 p-4">
+            <p class="text-xs text-gray-500 mb-2">Urgensi</p>
+            <p id="resultUrgency" class="text-lg font-semibold text-gray-900">—</p>
+          </div>
+        </div>
+
+        <div class="mt-4 rounded-2xl bg-bali-50 border border-primary/10 p-5">
+          <p class="text-sm font-semibold text-gray-900 mb-2">Rekomendasi AI</p>
+          <p id="resultRecommendation" class="text-sm leading-7 text-gray-600">
+            —
+          </p>
+        </div>
+
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="rounded-2xl bg-white border border-primary/10 p-4">
+            <p class="text-xs text-gray-500 mb-2">Lokasi</p>
+            <p id="resultLokasi" class="text-sm font-medium text-gray-800">—</p>
+          </div>
+
+          <div id="aiImgBox" class="hidden rounded-2xl overflow-hidden border border-primary/10 min-h-[90px]">
+            <img id="aiPreviewImg" class="w-full h-full object-cover" alt="Foto sampah">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="flex flex-col gap-4 reveal reveal-right delay-200">
+        <div class="bg-white border border-primary/15 rounded-[24px] shadow-sm p-5">
+          <p class="text-sm font-semibold text-gray-900 mb-5">Profil sampah</p>
+
+          <div class="space-y-4">
             <div>
-              <p class="text-sm text-white/60">Ringkasan Aktivitas</p>
-              <h3 class="mt-2 text-2xl font-semibold">Laporan Hari Ini</h3>
+              <div class="flex justify-between text-xs text-gray-500 mb-2">
+                <span id="dominantLabel">Komposisi utama</span>
+                <span id="dominantPercent" class="font-medium text-gray-800">—</span>
+              </div>
+              <div class="h-2 rounded-full bg-gray-200 overflow-hidden">
+                <div id="dominantBar" class="h-full rounded-full bg-primary transition-all duration-700" style="width:0%"></div>
+              </div>
             </div>
 
-            <div class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-center">
-              <p class="text-xs text-white/60">Aktif</p>
-              <p class="mt-1 text-xl font-bold text-white">24</p>
-            </div>
-          </div>
-
-          <div class="mt-8 space-y-4">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 flex items-center justify-between">
-              <span class="text-sm text-white/70">Laporan Baru</span>
-              <span class="text-sm font-semibold text-white">+8</span>
+            <div>
+              <div class="flex justify-between text-xs text-gray-500 mb-2">
+                <span>Dampak visual</span>
+                <span id="impactPercent" class="font-medium text-gray-800">—</span>
+              </div>
+              <div class="h-2 rounded-full bg-gray-200 overflow-hidden">
+                <div id="impactBar" class="h-full rounded-full bg-info transition-all duration-700" style="width:0%"></div>
+              </div>
             </div>
 
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 flex items-center justify-between">
-              <span class="text-sm text-white/70">Diproses Petugas</span>
-              <span class="text-sm font-semibold text-white">14</span>
+            <div>
+              <div class="flex justify-between text-xs text-gray-500 mb-2">
+                <span>Estimasi jarak ke TPS</span>
+                <span id="distanceText" class="font-medium text-gray-800">—</span>
+              </div>
+              <div class="h-2 rounded-full bg-gray-200 overflow-hidden">
+                <div id="distanceBar" class="h-full rounded-full bg-warning transition-all duration-700" style="width:0%"></div>
+              </div>
             </div>
-
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 flex items-center justify-between">
-              <span class="text-sm text-white/70">Selesai Hari Ini</span>
-              <span class="text-sm font-semibold text-white">17</span>
-            </div>
-          </div>
-
-          <div class="mt-8 rounded-2xl bg-linear-to-br from-primary to-bali-600 p-5">
-            <p class="text-sm text-white/80">Update terakhir</p>
-            <p class="mt-2 text-lg font-semibold leading-relaxed">
-              Area Kuta Selatan mendapat prioritas penanganan karena kepadatan laporan meningkat 18% dari kemarin.
-            </p>
           </div>
         </div>
+
+        <div class="bg-white border border-primary/15 rounded-[24px] shadow-sm p-5">
+          <p class="text-sm font-semibold text-gray-900 mb-4">Saran tindakan</p>
+
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              </div>
+              <p id="actionHint1" class="text-sm text-gray-600 leading-relaxed">
+                Prioritaskan pengumpulan di satu titik aman
+              </p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              </div>
+              <p id="actionHint2" class="text-sm text-gray-600 leading-relaxed">
+                Kumpulkan lalu bawa ke TPS terdekat
+              </p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-warning/10 border border-warning/20 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+              </div>
+              <p id="actionHint3" class="text-sm text-gray-600 leading-relaxed">
+                Laporkan bila area berbahaya atau sulit dijangkau
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-orange-50 border border-orange-200 rounded-[24px] shadow-sm p-5">
+          <p class="text-sm font-semibold text-gray-900 mb-3">Pratinjau reward</p>
+          <div class="flex items-end justify-between">
+            <div>
+              <p id="rewardPreview" class="text-3xl font-semibold text-warning">+200</p>
+              <p class="text-xs text-amber-700 mt-1">Poin jika aksi mandiri selesai</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action cards -->
+    <div class="max-w-6xl mx-auto bg-white rounded-[28px] px-6 lg:px-10 py-10 reveal reveal-up delay-100">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 leading-tight reveal reveal-up delay-100">
+          Apa yang ingin kamu lakukan dengan sampah ini?
+        </h2>
+        <p class="text-gray-500 text-sm md:text-base mt-3 reveal reveal-up delay-200">
+          Pilih tindakan yang paling sesuai berdasarkan hasil analisis
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Aksi mandiri -->
+        <div class="rounded-[24px] border border-primary/15 bg-bali-50 p-6 reveal reveal-up delay-100">
+          <div class="flex items-start justify-between gap-4 mb-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900">Bersihkan sendiri</h3>
+              <p class="text-sm text-gray-500 mt-1">
+                Cocok untuk risiko rendah dan area yang aman ditangani langsung.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white border border-primary/10 px-4 py-3 text-right shadow-sm">
+              <p class="text-xs text-gray-500 mb-1">Reward</p>
+              <p id="selfReward" class="text-2xl font-semibold text-primary">+200</p>
+            </div>
+          </div>
+
+          <div class="space-y-3 mb-6">
+            <div class="rounded-2xl bg-white border border-primary/10 p-4">
+              <p class="text-sm font-semibold text-gray-800">Panduan AI</p>
+              <p id="selfGuide" class="text-xs text-gray-500 mt-1 leading-relaxed">
+                Gunakan sarung tangan, kumpulkan ke satu titik aman sebelum dibawa ke TPS.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white border border-primary/10 p-4">
+              <p class="text-sm font-semibold text-gray-800">Durasi tugas</p>
+              <p class="text-xs text-gray-500 mt-1">Estimasi 30 menit untuk penyelesaian</p>
+            </div>
+
+            <div class="rounded-2xl bg-white border border-primary/10 p-4">
+              <p class="text-sm font-semibold text-gray-800">Validasi hasil</p>
+              <p class="text-xs text-gray-500 mt-1">Unggah foto akhir untuk memverifikasi area sudah bersih</p>
+            </div>
+          </div>
+
+          <button
+            id="btnMandiri"
+            type="button"
+            class="w-full rounded-full bg-primary py-3.5 text-sm font-semibold text-white hover:bg-bali-700 transition shadow-sm cursor-pointer"
+          >
+            Mulai aksi bersih
+          </button>
+        </div>
+
+        <!-- Lapor petugas -->
+        <div class="rounded-[24px] border border-orange-200 bg-orange-50 p-6 reveal reveal-up delay-200">
+          <div class="flex items-start justify-between gap-4 mb-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900">Lapor ke petugas</h3>
+              <p class="text-sm text-gray-500 mt-1">
+                Disarankan jika butuh tindak lanjut petugas atau tingkat risikonya lebih tinggi.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white border border-orange-200 px-4 py-3 text-right shadow-sm">
+              <p class="text-xs text-gray-500 mb-1">Reward</p>
+              <p id="reportReward" class="text-2xl font-semibold text-warning">+50</p>
+            </div>
+          </div>
+
+          <div class="space-y-3 mb-6">
+            <div class="rounded-2xl bg-white border border-orange-200 p-4">
+              <p class="text-sm font-semibold text-gray-800">Urgensi penanganan</p>
+              <p id="reportGuide1" class="text-xs text-gray-500 mt-1 leading-relaxed">
+                Skor urgensi dihitung otomatis dan diteruskan ke petugas lokal.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white border border-orange-200 p-4">
+              <p class="text-sm font-semibold text-gray-800">Distribusi laporan</p>
+              <p id="reportGuide2" class="text-xs text-gray-500 mt-1">
+                Sistem mengarahkan laporan ke petugas atau dinas terkait.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white border border-orange-200 p-4">
+              <p class="text-sm font-semibold text-gray-800">Pelacakan progres</p>
+              <p class="text-xs text-gray-500 mt-1">Status penanganan bisa dipantau langsung dari sistem</p>
+            </div>
+          </div>
+
+          <button
+            id="btnPetugas"
+            type="button"
+            class="w-full rounded-full bg-warning py-3.5 text-sm font-semibold text-white hover:brightness-110 transition shadow-sm cursor-pointer"
+          >
+            Kirim ke petugas
+          </button>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
-<footer></footer>
+  <!-- ===== STATUS LAPORAN ===== -->
+  <section class="py-24 mt-12 relative z-20 bg-bali-50 rounded-t-3xl overflow-hidden reveal reveal-up delay-200">
+  <div class="container mx-auto px-6 lg:px-24 text-center">
+
+    <div class="max-w-3xl mx-auto mb-16 reveal reveal-up">
+      <h2 class="text-4xl md:text-5xl font-medium text-gray-900 mb-4">Status Laporan Aktif</h2>
+      <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+        Pantau progres penanganan sampah secara real-time dari laporan yang sedang diproses.
+      </p>
+    </div>
+
+    <!-- Main Ticket Card -->
+    <div class="max-w-5xl mx-auto relative mb-20 reveal reveal-up delay-100">
+      <!-- badge area -->
+      <div class="absolute left-1/2 -translate-x-1/2 -top-5 z-20 flex flex-wrap justify-center gap-3 px-4 w-full">
+        <div class="bg-[#1F7A6B] text-white rounded-full px-5 py-2.5 text-xs md:text-sm font-semibold flex items-center justify-center gap-2 shadow-sm cursor-default">
+          <span id="statusTicketNumber" class="font-bold">Tiket #BR-2041</span>
+          <img src="../public/assets/icon/icon-right-arrow.png" alt="Arrow" class="w-3.5 h-3.5 object-contain brightness-0 invert">
+          <span id="statusBadgeText" class="font-bold">Sedang Diproses</span>
+        </div>
+
+        <div class="bg-[#1F7A6B] text-white rounded-full px-5 py-2.5 text-xs md:text-sm font-medium shadow-sm cursor-default">
+          Estimasi Selesai <span id="statusEstimateText" class="font-bold">35 Menit</span>
+        </div>
+      </div>
+
+      <!-- white wrapper -->
+      <div class="bg-white border-[2px] border-[#1F7A6B] rounded-[2.25rem] px-6 md:px-12 pt-16 pb-10 shadow-sm">
+        <h3 id="statusTitle" class="text-3xl md:text-4xl font-medium text-gray-900 leading-tight max-w-4xl mx-auto">
+          Tumpukan sampah plastik dekat trotoar Kuta
+        </h3>
+
+        <p class="text-gray-500 text-xs md:text-sm mt-6">
+          <span id="statusTimeText">Dilaporkan 12 menit lalu</span>
+          <span class="mx-2 text-gray-300">|</span>
+          <span id="statusCategoryText">Kategori Plastik</span>
+          <span class="mx-2 text-gray-300">|</span>
+          Volume <span id="statusVolumeText">Sedang</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="max-w-6xl mx-auto relative mb-14">
+      <!-- dashed line -->
+      <div class="hidden md:block absolute top-9 left-[10%] right-[10%] border-t-[1.5px] border-[#1F7A6B]/25 border-dashed z-0 reveal delay-700"></div>
+
+      <div class="flex flex-col md:flex-row justify-between items-start gap-6 relative z-10">
+
+        <!-- STEP 1 -->
+        <div id="statusStep1" class="status-step flex-1 flex flex-col items-center group reveal reveal-left delay-100 opacity-100 px-2 text-center">
+          <div class="relative mb-6">
+            <div class="w-[4.5rem] h-[4.5rem] bg-[#1F7A6B] rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+              <img src="../public/assets/icon/icon-input.png" alt="Laporan Masuk" class="w-8 h-8 object-contain brightness-0 invert">
+            </div>
+            <div class="absolute -top-1 -right-1.5 w-6 h-6 md:w-7 md:h-7 bg-white rounded-full flex items-center justify-center shadow-sm font-bold text-xs md:text-sm text-gray-500">
+              1
+            </div>
+          </div>
+          <h3 class="text-lg md:text-xl font-semibold text-[#1f2937] mb-2">Laporan Masuk</h3>
+          <p class="text-gray-500 text-[11px] md:text-xs leading-relaxed max-w-[14rem]">
+            Laporan berhasil dikirim oleh pengguna beserta foto dan informasi pendukung untuk diproses oleh sistem.
+          </p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="statusStep2" class="status-step flex-1 flex flex-col items-center group reveal reveal-left delay-300 opacity-100 px-2 text-center">
+          <div class="relative mb-6">
+            <div class="w-[4.5rem] h-[4.5rem] bg-[#1F7A6B] rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+              <img src="../public/assets/icon/icon-analys.png" alt="Analisis AI" class="w-8 h-8 object-contain brightness-0 invert">
+            </div>
+            <div class="absolute -top-1 -right-1.5 w-6 h-6 md:w-7 md:h-7 bg-white rounded-full flex items-center justify-center shadow-sm font-bold text-xs md:text-sm text-gray-500">
+              2
+            </div>
+          </div>
+          <h3 class="text-lg md:text-xl font-semibold text-[#1f2937] mb-2">Analisis AI</h3>
+          <p class="text-gray-500 text-[11px] md:text-xs leading-relaxed max-w-[14rem]">
+            Sistem AI menganalisis kategori sampah, volume, lokasi, dan tingkat risiko untuk menentukan rekomendasi terbaik.
+          </p>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="statusStep3" class="status-step flex-1 flex flex-col items-center group reveal reveal-left delay-500 opacity-100 px-2 text-center">
+          <div class="relative mb-6">
+            <div id="statusStep3Circle" class="w-[4.5rem] h-[4.5rem] bg-[#1F7A6B] rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+              <img src="../public/assets/icon/icon-clean.png" alt="Petugas Bergerak" class="w-8 h-8 object-contain brightness-0 invert">
+            </div>
+            <div class="absolute -top-1 -right-1.5 w-6 h-6 md:w-7 md:h-7 bg-white rounded-full flex items-center justify-center shadow-sm font-bold text-xs md:text-sm text-gray-500">
+              3
+            </div>
+          </div>
+          <h3 class="text-lg md:text-xl font-semibold text-[#1f2937] mb-2">Petugas Bergerak</h3>
+          <p class="text-gray-500 text-[11px] md:text-xs leading-relaxed max-w-[14rem]">
+            Laporan sedang ditindaklanjuti. Penanganan dilakukan sesuai hasil analisis AI dan kebutuhan di lapangan.
+          </p>
+        </div>
+
+        <!-- STEP 4 -->
+        <div id="statusStep4" class="status-step flex-1 flex flex-col items-center group reveal reveal-up delay-700 opacity-60 px-2 text-center">
+          <div class="relative mb-6">
+            <div class="w-[4.5rem] h-[4.5rem] bg-[#89c4b7] rounded-full flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-105">
+              <img src="../public/assets/icon/icon-done.png" alt="Selesai" class="w-8 h-8 object-contain brightness-0 invert opacity-60">
+            </div>
+            <div class="absolute -top-1 -right-1.5 w-6 h-6 md:w-7 md:h-7 bg-white rounded-full flex items-center justify-center shadow-sm font-bold text-xs md:text-sm text-gray-400">
+              4
+            </div>
+          </div>
+          <h3 class="text-lg md:text-xl font-semibold text-gray-400 mb-2">Selesai</h3>
+          <p class="text-gray-400 text-[11px] md:text-xs leading-relaxed max-w-[14rem]">
+            Proses penanganan telah selesai. Laporan ditutup dan status akhir tercatat di dalam sistem.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Progress Badge -->
+    <div class="flex justify-center mt-10 mb-8 reveal reveal-up delay-900">
+      <div class="bg-white text-[#1F7A6B] px-8 md:px-10 py-3 rounded-full font-medium text-sm shadow-sm cursor-default">
+        Progress Penanganan <span id="statusProgressText" class="font-bold">75%</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <footer></footer>
+
+  <!-- ===== REWARD POPUP ===== -->
+  <div
+  id="rewardOverlay"
+  class="reward-overlay fixed inset-0 z-[999] flex items-center justify-center p-6 opacity-0 pointer-events-none transition-opacity duration-300 bg-black/45 backdrop-blur-sm"
+  role="dialog"
+  aria-modal="true"
+>
+  <div
+    id="rewardModal"
+    class="reward-modal green w-full max-w-md rounded-[28px] p-7 md:p-8 relative translate-y-4 scale-[0.98]"
+  >
+    <button
+      id="rewardClose"
+      class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/[0.04] hover:bg-black/[0.08] border border-black/5 cursor-pointer flex items-center justify-center text-gray-500 transition-colors"
+      aria-label="Tutup"
+      type="button"
+    >
+      <span class="text-lg leading-none">&times;</span>
+    </button>
+
+    <div class="mb-6">
+      <div id="rmTagLabel" class="rm-accent inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium mb-4">
+        Reward diperbarui
+      </div>
+
+      <h3 id="rmTitle" class="text-2xl font-semibold text-gray-900 leading-tight">
+        Reward untuk aksi kamu sudah siap
+      </h3>
+
+      <p id="rmSubtitle" class="mt-2 text-sm text-gray-500 leading-relaxed">
+        Sistem telah menghitung poin berdasarkan jenis tindakan yang kamu pilih.
+      </p>
+    </div>
+
+    <div class="rounded-[24px] bg-bali-50 border border-primary/10 px-6 py-6 text-center mb-6">
+      <p class="text-sm text-gray-500 mb-2">Total reward</p>
+      <p id="rmPoints" class="rm-points text-5xl md:text-6xl font-semibold tracking-tight">+200</p>
+      <p id="rmPointsNote" class="text-xs text-gray-500 mt-2">Poin akan masuk setelah proses divalidasi</p>
+    </div>
+
+    <div class="space-y-4 mb-6">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm text-gray-700 font-medium">Laporan terverifikasi</p>
+          <span class="text-sm font-semibold text-gray-800">+50</span>
+        </div>
+        <div class="rm-bar h-2 rounded-full overflow-hidden">
+          <div id="rmBar1" class="rm-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <p id="rmLabel2" class="text-sm text-gray-700 font-medium">Aksi mandiri selesai</p>
+          <span id="rmVal2" class="text-sm font-semibold text-gray-800">+150</span>
+        </div>
+        <div class="rm-bar h-2 rounded-full overflow-hidden">
+          <div id="rmBar2" class="rm-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm text-gray-700 font-medium">Kontribusi untuk desa</p>
+          <span id="rmVal3" class="text-sm font-semibold text-gray-800">+Bonus</span>
+        </div>
+        <div class="rm-bar h-2 rounded-full overflow-hidden">
+          <div id="rmBar3" class="rm-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rounded-2xl bg-white border border-gray-200 px-4 py-4 mb-6">
+      <p class="text-sm text-gray-700 leading-relaxed">
+        <span class="font-medium text-gray-900">Catatan:</span>
+        <span id="rmNote">poin dikreditkan otomatis setelah foto bukti diunggah dan laporan diverifikasi.</span>
+      </p>
+    </div>
+
+    <button
+      id="rmConfirm"
+      type="button"
+      class="rm-confirm w-full rounded-full py-3.5 text-sm font-semibold cursor-pointer transition-all duration-300 hover:shadow-md"
+    >
+      Lanjutkan
+    </button>
+  </div>
+</div>
 
   <script src="./js/pelaporan.js"></script>
   <script src="../src/js/components.js"></script>
   <script src="../src/js/navbar.js"></script>
   <script src="../src/js/auth-modal.js"></script>
+  <script src="../src/js/reveal.js"></script>
   <script>
-    initLayout('type2'); 
+    initLayout('type2');
     initNavbarScroll('type2');
-</script>
+  </script>
 </body>
 </html>
