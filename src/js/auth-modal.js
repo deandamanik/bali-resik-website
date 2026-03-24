@@ -19,7 +19,7 @@ const authTemplates = {
                 <input id="login-pass" type="password" class="w-full px-6 py-3.5 rounded-xl border border-gray-100 bg-gray-50/50 focus:bg-white focus:border-primary outline-none transition-all text-sm shadow-sm" placeholder="Masukkan kata sandi">
                 <button type="button" class="text-[11px] text-primary mt-2 underline ml-1 font-semibold italic">Lupa Kata Sandi?</button>
             </div>
-            <button type="submit" class="w-full bg-[#569785] hover:bg-primary text-white py-4 rounded-full font-bold shadow-md transition-all duration-300 transform hover:-translate-y-0.5 mt-2 text-base">Masuk</button>
+            <a href="profile.html"><button type="submit" class="w-full bg-[#569785] hover:bg-primary text-white py-4 rounded-full font-bold shadow-md transition-all duration-300 transform hover:-translate-y-0.5 mt-2 text-base">Masuk</button></a>
         </form>
         <div class="relative my-8">
             <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-100"></div></div>
@@ -57,9 +57,9 @@ const authTemplates = {
                     Gunakan 8 karakter atau lebih dengan campuran huruf, angka, dan simbol.
                 </p>
             </div>
-            <button type="submit" class="w-full bg-[#569785] hover:bg-primary text-white py-4 rounded-full font-bold shadow-md transition-all duration-300 transform hover:-translate-y-0.5 mt-4 text-base">
+            <a href="profile.html"><button type="submit" class="w-full bg-[#569785] hover:bg-primary text-white py-4 rounded-full font-bold shadow-md transition-all duration-300 transform hover:-translate-y-0.5 mt-4 text-base">
                 Buat akun
-            </button>
+            </button></a>
         </form>
         <div class="relative my-8">
             <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-100"></div></div>

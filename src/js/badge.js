@@ -33,7 +33,6 @@ function renderBadges() {
         </div>
     `).join('');
 
-    // WAJIB: Render ulang icon Lucide setelah HTML di-inject
     lucide.createIcons();
 }
 

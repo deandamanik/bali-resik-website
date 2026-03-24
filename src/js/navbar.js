@@ -12,10 +12,9 @@ const initNavbarScroll = (navType = 'type1') => {
         
         if (path.includes('peta-sampah.html')) return "Peta Sampah";
         if (path.includes('gamifikasi.html')) return "Gamifikasi";
-        if (path.includes('tentang.html')) return "Tentang";
+        if (path.includes('hubungi-kami.html')) return "Hubungi Kami";
         if (path.includes('pelaporan.html')) return "Laporkan";
-        if (path.includes('ranking-desa.html')) return "Ranking Desa";
-        if (path.includes('reward.html')) return "Reward";
+        if (path.includes('profile.html')) return "";
         
         return "Beranda"; 
     };

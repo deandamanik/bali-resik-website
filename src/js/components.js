@@ -11,7 +11,7 @@ const components = {
                 <a href="index.html" class="nav-item hover:text-white transition-all">Beranda</a>
                 <a href="peta-sampah.html" class="nav-item hover:text-white transition-all">Peta Sampah</a>
                 <a href="gamifikasi.html" class="nav-item hover:text-white transition-all">Gamifikasi</a>
-                <a href="tentang.html" class="nav-item hover:text-white transition-all">Tentang</a>
+                <a href="hubungi-kami.html" class="nav-item hover:text-white transition-all">Hubungi Kami</a>
             </div>
             
             <div class="flex items-center gap-6 animate-slideInRight animate-delay-400">
@@ -31,12 +31,6 @@ const components = {
             <div class="flex items-center gap-4 cursor-pointer animate-slideInLeft" onclick="window.location.href='index.html'">
                 <img id="logo-img" src="../public/assets/logo/Logo-White.png" alt="Bali Resik Logo" class="h-12 transition-all">
                 <h1 id="nav-title" class="text-2xl font-bold text-white tracking-tight transition-all">Bali Resik</h1>
-            </div>
-            
-            <div id="nav-links" class="hidden md:flex gap-14 font-medium text-white/60 items-center animate-slideInRight animate-delay-200">
-                <a href="pelaporan.html" class="nav-item hover:text-white transition-all">Laporkan</a>
-                <a href="ranking-desa.html" class="nav-item hover:text-white transition-all">Ranking Desa</a>
-                <a href="reward.html" class="nav-item hover:text-white transition-all">Reward</a>
             </div>
             
             <div class="flex items-center gap-6 animate-slideInRight animate-delay-400">
@@ -62,7 +56,7 @@ const components = {
                 <a href="index.html" class="nav-item hover:text-[#1F7A6B] transition-all">Beranda</a>
                 <a href="peta-sampah.html" class="nav-item text-[#1F7A6B] font-bold relative after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#1F7A6B] transition-all">Peta Sampah</a>
                 <a href="gamifikasi.html" class="nav-item hover:text-[#1F7A6B] transition-all">Gamifikasi</a>
-                <a href="tentang.html" class="nav-item hover:text-[#1F7A6B] transition-all">Tentang</a>
+                <a href="hubungi-kami.html" class="nav-item hover:text-[#1F7A6B] transition-all">Hubungi Kami</a>
             </div>
             
             <div class="flex items-center gap-6 animate-slideInRight animate-delay-400">
