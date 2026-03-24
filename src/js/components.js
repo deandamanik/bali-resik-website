@@ -49,6 +49,32 @@ const components = {
                     <img src="../public/assets/icon/Icon-User.png" alt="User" class="w-full h-full object-cover">
                 </div>
             </div>
+        </nav>`,
+
+        navbarPeta: `
+        <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center py-6 px-6 lg:px-36 bg-white border-b border-gray-100 shadow-sm transition-all duration-500">
+            <div class="flex items-center gap-4 cursor-pointer animate-slideInLeft" onclick="window.location.href='index.html'">
+                <img id="logo-img" src="../public/assets/logo/Logo-Green.png" alt="Bali Resik Logo" class="h-12 transition-all">
+                <h1 id="nav-title" class="text-2xl font-bold text-[#1F7A6B] tracking-tight transition-all">Bali Resik</h1>
+            </div> 
+            
+            <div id="nav-links" class="hidden md:flex gap-14 font-medium text-gray-500 items-center animate-slideInRight animate-delay-200">
+                <a href="index.html" class="nav-item hover:text-[#1F7A6B] transition-all">Beranda</a>
+                <a href="peta-sampah.html" class="nav-item text-[#1F7A6B] font-bold relative after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#1F7A6B] transition-all">Peta Sampah</a>
+                <a href="gamifikasi.html" class="nav-item hover:text-[#1F7A6B] transition-all">Gamifikasi</a>
+                <a href="tentang.html" class="nav-item hover:text-[#1F7A6B] transition-all">Tentang</a>
+            </div>
+            
+            <div class="flex items-center gap-6 animate-slideInRight animate-delay-400">
+                <a href="pelaporan.html">
+                    <button id="nav-btn" class="bg-[#1F7A6B] text-white px-7 py-2 rounded-sm font-bold hover:brightness-110 transition shadow-lg cursor-pointer">
+                        Laporkan
+                    </button>
+                </a>
+                <div onclick="openAuthModal()" id="nav-user" class="w-10 h-10 rounded-full overflow-hidden border border-gray-200 hover:border-[#1F7A6B]/30 transition cursor-pointer">
+                    <img src="../public/assets/icon/icon-user-2.png" alt="User" class="w-full h-full object-cover">
+                </div>
+            </div>
         </nav>`
     },
 
@@ -106,7 +132,7 @@ const components = {
         <div id="modal-backdrop" class="absolute inset-0 bg-black/40 backdrop-blur-sm opacity-0 transition-all duration-500" onclick="closeAuthModal()"></div>
         <div id="modal-container" class="relative w-[90%] max-w-125 z-1000 opacity-0 scale-95 transition-all duration-300">
             <div class="bg-white rounded-[35px] p-10 shadow-2xl relative">
-                <button type="button" onclick="closeAuthModal()" class="absolute top-6 right-6 text-gray-400 hover:text-[#1F7A6B] p-2 hover:bg-gray-100 rounded-full transition-all">
+                <button type="button" onclick="closeAuthModal()" class="absolute top-6 right-6 text-gray-400 hover:text-primary p-2 hover:bg-gray-100 rounded-full transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
