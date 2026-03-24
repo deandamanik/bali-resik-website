@@ -6,86 +6,235 @@
     <title>Gamifikasi - Bali Resik</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="./css/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script> 
 </head>
 <body class="bg-white text-gray-900 overflow-x-hidden">
 
     <header></header>
 
-    <main>
-        <section class="relative bg-[#153C35] pt-48 pb-32 px-6 lg:px-36 rounded-b-[50px] overflow-hidden">
-            <div class="relative z-10 max-w-4xl animate-slideInLeft">
-                <span class="text-[#569785] font-bold tracking-widest uppercase text-sm mb-4 block">Mainkan & Kontribusikan</span>
-                <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8">
-                    Kumpulkan <span class="text-[#569785]">Poin</span>, Bersihkan Bali.
-                </h1>
-                <p class="text-white/70 text-lg leading-relaxed max-w-2xl">
-                    Setiap laporan sampah yang terverifikasi akan memberikanmu poin. Tukarkan poinmu dengan reward menarik dan naikkan level kontribusimu di komunitas Bali Resik.
-                </p>
+    <main class="font-poppins bg-[#FAFAFA] min-h-screen pb-20">
+        <section class="bg-[#153C35] pt-32 pb-20 px-6 lg:px-36 rounded-b-[40px]">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+                <div>
+                    <h1 class="text-4xl font-bold text-white mb-2">Dashboard Ksatria</h1>
+                    <p class="text-[#569785] font-medium">Wira Resik • Level 12</p>
+                </div>
+                <div class="flex gap-12 text-white border-l border-white/10 pl-12">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-widest opacity-50 block mb-1">Dampak Aksi</span>
+                        <span class="text-3xl font-bold">42 <span class="text-sm font-normal opacity-50">kg Sampah</span></span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-widest opacity-50 block mb-1">Total Poin</span>
+                        <span class="text-3xl font-bold">2.450 <span class="text-sm font-normal opacity-50">RP</span></span>
+                    </div>
+                </div>
             </div>
-            <div class="absolute top-0 right-0 w-1/3 h-full bg-[#1F7A6B]/10 blur-[120px] rounded-full -mr-20 -mt-20"></div>
         </section>
 
-        <section class="py-24 px-6 lg:px-36">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <section class="-mt-10 px-6 lg:px-36">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <div class="lg:col-span-2 space-y-12 animate-slideInLeft animate-delay-200">
-                    <div class="bg-gray-50 p-10 rounded-[40px] border border-gray-100">
-                        <h3 class="text-2xl font-bold text-[#153C35] mb-6">Status Kontribusi</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
-                                <p class="text-gray-400 text-sm font-medium">Total Poin Kamu</p>
-                                <h4 class="text-4xl font-bold text-[#1F7A6B]">2,450</h4>
+                <div class="lg:col-span-8 space-y-8">
+                    
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                        <div class="flex justify-between items-end mb-4">
+                            <h3 class="font-bold text-[#153C35]">Progres LevelMu</h3>
+                            <span class="text-xs font-semibold text-gray-400">XP: 1.350 / 2.000</span>
+                        </div>
+                        <div class="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full w-[65%] rounded-full transition-all duration-1000"></div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 mt-3 italic">*Dapatkan 650 XP lagi untuk naik ke pangkat Ksatria Resik.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                        <div class="flex items-center justify-between mb-8">
+                            <h3 class="font-bold text-[#153C35] flex items-center gap-2 text-lg">
+                                Misi Hari Ini
+                            </h3>
+                            <div class="flex items-center gap-1.5 text-gray-400">
+                                <i data-lucide="clock" class="w-3 h-3"></i>
+                                <span class="text-xs font-semibold tracking-wider">Reset 12j 30m</span>
                             </div>
-                            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
-                                <p class="text-gray-400 text-sm font-medium">Level Saat Ini</p>
-                                <h4 class="text-4xl font-bold text-[#153C35]">Eco Hero</h4>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="group relative p-6 rounded-3xl bg-white border-2 border-gray-50 hover:border-prbg-primary/30 hover:shadow-xl hover:shadow-prbg-primary/5 transition-all duration-300">
+                                <div class="flex justify-between items-start mb-6">
+                                    <div class="w-12 h-12 rounded-2xl bg-[#F0F7F5] text-prbg-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                                        <i data-lucide="camera" class="w-6 h-6"></i>
+                                    </div>
+                                    <span class="text-[10px] font-black text-prbg-primary bg-[#F0F7F5] px-3 py-1 rounded-full uppercase tracking-widest">+500 PTS</span>
+                                </div>
+                                <div class="mb-8">
+                                    <h4 class="text-base font-bold text-[#153C35] mb-1">Lapor Titik Baru</h4>
+                                    <p class="text-xs text-gray-400 leading-relaxed font-medium">Validasi lokasi sampah liar baru di peta interaktif.</p>
+                                </div>
+                                <a href="pelaporan.html">
+                                    <button class="w-full py-3.5 bg-primary text-white rounded-xl text-xs font-bold hover:bg-[#153C35] transition-colors flex items-center justify-center gap-2 group-hover:shadow-lg shadow-prbg-primary/20">
+                                        Buat Laporan
+                                        <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform"></i>
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div class="relative p-6 rounded-3xl bg-gray-50/50 border border-gray-100 overflow-hidden group">
+                                <div class="absolute -top-4 -right-4 opacity-[0.03] -rotate-12">
+                                    <i data-lucide="check-circle-2" class="w-32 h-32"></i>
+                                </div>
+                                <div class="flex justify-between items-start mb-6">
+                                    <div class="w-12 h-12 rounded-2xl bg-white text-gray-300 flex items-center justify-center">
+                                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                                    </div>
+                                    <span class="text-xs font-black text-gray-300 tracking-widest">Done</span>
+                                </div>
+                                <div class="mb-8">
+                                    <h4 class="text-base font-bold text-gray-300 mb-1">Konfirmasi Bersih</h4>
+                                    <p class="text-xs text-gray-300 leading-relaxed font-medium">Lakukan konfirmasi foto sebelum & sesudah aksi pembersihan.</p>
+                                </div>
+                                <div class="w-full py-3.5 bg-white border border-gray-100 text-gray-300 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-default">
+                                    Misi Selesai
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div>
-                        <h3 class="text-2xl font-bold text-[#153C35] mb-8">Misi Harian</h3>
-                        <div class="space-y-6">
-                            <div class="p-6 rounded-3xl bg-white border border-gray-100 shadow-sm flex items-center justify-between">
-                                <div>
-                                    <h4 class="font-bold text-lg">Laporkan 1 Titik Sampah</h4>
-                                    <p class="text-gray-400">Dapatkan +500 Poin</p>
-                                </div>
-                                <span class="bg-primary-subtle text-[#1F7A6B] px-6 py-2 rounded-full font-bold text-sm">Ambil</span>
-                            </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                        <div class="mb-6">
+                            <h3 class="text-xl font-bold text-[#153C35]">Badge & Pencapaian</h3>
+                            <p class="text-xs text-gray-400 mt-1"><span id="unlockedCount">0</span> dari 12 badge berhasil kamu raih.</p>
                         </div>
+                        <div id="badgeGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-1 animate-slideInRight animate-delay-400">
-                    <div class="p-8 rounded-[40px] bg-[#153C35] text-white shadow-2xl">
-                        <h3 class="text-xl font-bold mb-8 flex items-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            Leaderboard
-                        </h3>
-                        <div class="space-y-6">
-                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                <div class="lg:col-span-4 space-y-8">
+                    
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+                        <h3 class="font-bold text-[#153C35] text-lg mb-6">Papan Peringkat</h3>
+                        
+                        <div class="space-y-5">
+                            <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-4">
-                                    <span class="font-bold text-lg opacity-50">01</span>
-                                    <span class="font-medium">Wayan Developer</span>
+                                    <span class="text-xs font-black text-prbg-primary w-5">01</span>
+                                    <span class="text-sm font-bold text-gray-700">Made Dev</span>
                                 </div>
-                                <span class="font-bold">12,500</span>
+                                <span class="text-xs font-black text-[#153C35]">12.5k</span>
                             </div>
-                            </div>
-                    </div>
-                </div>
 
-            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <span class="text-xs font-black text-gray-300 w-5">02</span>
+                                    <span class="text-sm font-medium text-gray-500">Santi Putri</span>
+                                </div>
+                                <span class="text-xs font-bold text-gray-400">9.2k</span>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <span class="text-xs font-black text-gray-300 w-5">03</span>
+                                    <span class="text-sm font-medium text-gray-500">Gus De</span>
+                                </div>
+                                <span class="text-xs font-bold text-gray-400">6.5k</span>
+                            </div>
+
+                            <div class="flex justify-center py-2">
+                                <div class="flex gap-1">
+                                    <div class="w-1 h-1 rounded-full bg-gray-600"></div>
+                                    <div class="w-1 h-1 rounded-full bg-gray-600"></div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="p-4 bg-primary/5 border border-prbg-primary/10 rounded-2xl flex justify-between items-center">
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-[10px] font-black text-prbg-primary">#45</span>
+                                        <span class="text-[11px] font-black text-prbg-primary tracking-wider uppercase">Peringkat Kamu</span>
+                                    </div>
+                                    <span class="text-base font-black text-prbg-primary">2.4k</span>
+                                </div>
+
+                                <div class="flex items-center justify-between px-2 opacity-50">
+                                    <div class="flex items-center gap-4">
+                                        <span class="text-xs font-bold text-gray-400 w-5">46</span>
+                                        <span class="text-sm font-medium text-gray-500">Ketut Arta</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-400">2.3k</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                        <div class="flex items-center justify-between mb-8">
+                            <h3 class="font-bold text-[#153C35] text-lg">Dampak AksiMu</h3>
+                            <a href="#" class="text-[10px] font-bold text-prbg-primary uppercase tracking-wider hover:underline">Lihat Semua</a>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-[#F0F7F5] flex items-center justify-center text-prbg-primary">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-gray-700">Lapor Titik Liar</h4>
+                                        <p class="text-[10px] text-gray-400 font-medium">Pantai Kuta • 2 jam lalu</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-black text-prbg-primary">+500</span>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-[#F0F7F5] flex items-center justify-center text-prbg-primary">
+                                        <i data-lucide="check-circle" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-gray-700">Konfirmasi Bersih</h4>
+                                        <p class="text-[10px] text-gray-400 font-medium">Renon • Kemarin</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-black text-prbg-primary">+300</span>
+                            </div>
+
+                            <div class="flex items-center justify-between opacity-70">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-gray-500">Lapor Titik Liar</h4>
+                                        <p class="text-[10px] text-gray-400 font-medium">Uluwatu • 3 hari lalu</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-black text-gray-400">+500</span>
+                            </div>
+                        </div>
+                    </div>
+                <div class="bg-[#F0F7F5] p-6 rounded-3xl border border-prbg-primary/10">
+                    <div class="flex items-center gap-3 mb-3 text-prbg-primary">
+                        <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider">Tips Minggu Ini</h4>
+                    </div>
+                    <p class="text-[11px] text-[#153C35] leading-relaxed font-medium">
+                        "Memilah sampah organik di rumah dapat mengurangi beban TPA hingga 60%. Mulailah dari dapurmu hari ini!"
+                    </p>
+                </div>
+                </div> </div>          
         </section>
     </main>
 
     <footer></footer>
 
+    <script>
+        lucide.createIcons();
+    </script>
     <script src="../src/js/components.js"></script>
     <script src="../src/js/navbar.js"></script>
     <script src="../src/js/auth-modal.js"></script>
+    <script src="../src/js/badge.js"></script>
     <script>
         initLayout('type1');
         initNavbarScroll('type1'); 
