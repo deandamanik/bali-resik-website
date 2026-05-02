@@ -12,6 +12,7 @@ const components = {
                     <a href="index.html" class="nav-item hover:text-white transition-all">Beranda</a>
                     <a href="peta-sampah.html" class="nav-item hover:text-white transition-all">Peta Sampah</a>
                     <a href="gamifikasi.html" class="nav-item hover:text-white transition-all">Gamifikasi</a>
+                    <a href="perankingan-desa.html" class="nav-item hover:text-white transition-all">Perankingan</a>
                     <a href="hubungi-kami.html" class="nav-item hover:text-white transition-all">Hubungi Kami</a>
                 </div>
                 
@@ -48,6 +49,7 @@ const components = {
                     <a href="index.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Beranda</a>
                     <a href="peta-sampah.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Peta Sampah</a>
                     <a href="gamifikasi.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Gamifikasi</a>
+                    <a href="perankingan-desa.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Perankingan</a>   
                     <a href="hubungi-kami.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Hubungi Kami</a>
                     <div class="flex items-center gap-3 mt-3 pt-3 border-t border-gray-100">
                         <a href="pelaporan.html" class="flex-1">
@@ -104,6 +106,7 @@ const components = {
                     <a href="index.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Beranda</a>
                     <a href="peta-sampah.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Peta Sampah</a>
                     <a href="gamifikasi.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Gamifikasi</a>
+                    <a href="perankingan-desa.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Perankingan</a>
                     <a href="hubungi-kami.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Hubungi Kami</a>
                     <div class="flex items-center gap-3 mt-3 pt-3 border-t border-gray-100">
                         <a href="index.html" class="flex-1">
@@ -131,6 +134,7 @@ const components = {
                     <a href="index.html" class="nav-item hover:text-[#1F7A6B] transition-all">Beranda</a>
                     <a href="peta-sampah.html" class="nav-item text-[#1F7A6B] font-bold relative after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#1F7A6B] transition-all">Peta Sampah</a>
                     <a href="gamifikasi.html" class="nav-item hover:text-[#1F7A6B] transition-all">Gamifikasi</a>
+                    <a href="perankingan-desa.html" class="nav-item hover:text-[#1F7A6B] transition-all">Perankingan</a>
                     <a href="hubungi-kami.html" class="nav-item hover:text-[#1F7A6B] transition-all">Hubungi Kami</a>
                 </div>
                 
@@ -167,6 +171,7 @@ const components = {
                     <a href="index.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Beranda</a>
                     <a href="peta-sampah.html" class="mobile-nav-item py-3 px-4 rounded-lg text-primary font-bold bg-bali-50 transition-all">Peta Sampah</a>
                     <a href="gamifikasi.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Gamifikasi</a>
+                    <a href="perankingan-desa.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Perankingan</a>
                     <a href="hubungi-kami.html" class="mobile-nav-item py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-bali-50 hover:text-primary transition-all">Hubungi Kami</a>
                     <div class="flex items-center gap-3 mt-3 pt-3 border-t border-gray-100">
                         <a href="pelaporan.html" class="flex-1">
@@ -218,6 +223,7 @@ const components = {
               <li><a href="peta-sampah.html" class="hover:text-primary transition-colors">Peta Sampah</a></li>
               <li><a href="gamifikasi.html" class="hover:text-primary transition-colors">Gamifikasi</a></li>
               <li><a href="hubungi-kami.html" class="hover:text-primary transition-colors">Hubungi Kami</a></li>
+              <li><a href="perankingan-desa.html" class="hover:text-primary transition-colors">Perankingan</a></li> 
               <li><a href="pelaporan.html" class="hover:text-primary transition-colors">Laporkan Sampah</a></li>
             </ul>
           </div>

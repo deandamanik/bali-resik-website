@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perankingan Desa – Bali Resik</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="./src/css/output.css" rel="stylesheet">
+</head>
+<body class="font-poppins bg-bali-50 text-gray-900 overflow-x-hidden">
+
+  <header></header>
+
+  <!-- HERO -->
+  <section class="relative min-h-[72vh] overflow-hidden rounded-b-[36px] bg-gray-950 text-white">
+    <div class="absolute inset-0 z-0">
+      <img src="../public/assets/img/bg-rank.jpg" alt="Perankingan Desa" class="w-full h-full object-cover opacity-45">
+      <div class="absolute inset-0 bg-linear-to-b from-black/60 via-black/25 to-black/65"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 py-32 flex flex-col items-center text-center">
+      <h1 class="font-animal text-5xl md:text-8xl lg:text-9xl text-white leading-tight mb-6 reveal reveal-up delay-200">
+        Perankingan Desa
+      </h1>
+
+      <p class="text-white/65 text-sm md:text-base max-w-xl leading-relaxed mb-10 reveal reveal-up delay-300">
+        Pantau performa kebersihan setiap desa di Bali. Bersama kita dorong semua desa untuk terus berkontribusi menjaga lingkungan.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-3 reveal reveal-up delay-400">
+        <div class="bg-white/8 border border-white/14 rounded-2xl px-5 py-3.5 backdrop-blur-sm text-center min-w-32.5">
+          <p class="text-lg font-semibold text-white">716</p>
+          <p class="text-xs text-white/55 mt-0.5">Total desa</p>
+        </div>
+        <div class="bg-white/8 border border-white/14 rounded-2xl px-5 py-3.5 backdrop-blur-sm text-center min-w-32.5">
+          <p class="text-lg font-semibold text-white">4,891+</p>
+          <p class="text-xs text-white/55 mt-0.5">Total laporan</p>
+        </div>
+        <div class="bg-white/8 border border-white/14 rounded-2xl px-5 py-3.5 backdrop-blur-sm text-center min-w-32.5">
+          <p class="text-lg font-semibold text-white">92%</p>
+          <p class="text-xs text-white/55 mt-0.5">Terselesaikan</p>
+        </div>
+        <div class="bg-white/8 border border-white/14 rounded-2xl px-5 py-3.5 backdrop-blur-sm text-center min-w-32.5">
+          <p class="text-lg font-semibold text-white">2.3 Ton</p>
+          <p class="text-xs text-white/55 mt-0.5">Sampah tertangani</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN RANKINGS -->
+  <section class="relative py-14 md:py-20 overflow-hidden" style="background-color:#e8f5f2;">
+    <div class="mx-auto px-6" style="max-width:1024px;">
+
+      <!-- LEADERBOARD HEADER -->
+      <div class="relative mb-10 text-center reveal reveal-up delay-100">
+        <h2 class="text-[44px] md:text-[72px] lg:text-[82px] font-bold tracking-[-0.05em] leading-[0.95]" style="color:#247f72;">
+          Leaderboard Desa
+        </h2>
+
+        <p class="mt-5 mx-auto max-w-[560px] text-sm md:text-base font-medium leading-relaxed" style="color:#8b8788;">
+          Berdasarkan jumlah laporan, tingkat penyelesaian, dan partisipasi warga dalam menjaga kebersihan lingkungan.
+        </p>
+
+        <div class="mt-6 mx-auto flex w-fit items-center overflow-hidden rounded-xl bg-white/80 p-1 shadow-sm">
+          <button type="button" onclick="setFilter('semua', this)" class="filter-btn active rounded-lg px-7 py-2 text-xs md:text-sm font-medium text-white transition-all cursor-pointer" style="background:#247f72;">Semua</button>
+          <button type="button" onclick="setFilter('kabupaten', this)" class="filter-btn rounded-lg px-7 py-2 text-xs md:text-sm font-medium text-gray-500 transition-all cursor-pointer">Kabupaten</button>
+          <button type="button" onclick="setFilter('kecamatan', this)" class="filter-btn rounded-lg px-7 py-2 text-xs md:text-sm font-medium text-gray-500 transition-all cursor-pointer">Kecamatan</button>
+        </div>
+      </div>
+
+      <!-- PODIUM -->
+      <div class="mb-12 reveal reveal-up delay-200">
+
+        <!-- RANK 1 -->
+        <article class="relative overflow-hidden rounded-[20px] bg-white/75 px-5 pt-5 pb-8 md:px-7 md:pt-7 md:pb-8" style="box-shadow:0 16px 35px rgba(28, 44, 40, 0.18);">
+          <div></div>
+
+          <div class="relative z-10 rounded-[18px] border-2 px-6 py-7 md:px-10 md:py-7" style="border-color:#247f72;">
+            <div class="mx-auto flex max-w-[430px] flex-col items-center text-center">
+              <div class="mb-5 flex h-[76px] w-[76px] items-center justify-center rounded-[18px]" style="background:#ffa70b; box-shadow:0 15px 32px rgba(255,167,11,0.35);">
+                <img src="../public/assets/icon/icon-piala.png" alt="Ikon piala" class="h-11 w-11 object-contain">
+              </div>
+
+              <h3 class="text-2xl md:text-[28px] font-bold leading-none" style="color:#171b2a;">
+                Ubud
+              </h3>
+
+              <div class="mt-3 flex items-center justify-center gap-1.5 text-xs" style="color:#6b7280;">
+                <img src="../public/assets/icon/icon-lokasi.png" alt="Ikon lokasi" class="h-3.5 w-3.5 object-contain">
+                <span>Gianyar Regency</span>
+              </div>
+
+              <div class="my-5 h-px w-full" style="background:#5aa69b;"></div>
+
+              <p class="text-[48px] md:text-[56px] font-bold leading-none" style="color:#247f72;">
+                98%
+              </p>
+              <p class="mt-3 text-xs" style="color:#7d7b7c;">
+                Terselesaikan
+              </p>
+
+              <div class="my-5 h-px w-full" style="background:#5aa69b;"></div>
+
+              <div class="grid w-full grid-cols-2 gap-4">
+                <div class="rounded-2xl bg-white/90 px-5 py-4 text-center" style="box-shadow:0 8px 18px rgba(28,44,40,0.13);">
+                  <p class="text-2xl font-bold leading-none" style="color:#171b2a;">156</p>
+                  <p class="mt-2 text-[11px]" style="color:#6b7280;">Laporan Masuk</p>
+                </div>
+                <div class="rounded-2xl bg-white/90 px-5 py-4 text-center" style="box-shadow:0 8px 18px rgba(28,44,40,0.13);">
+                  <p class="text-2xl font-bold leading-none" style="color:#171b2a;">12,840</p>
+                  <p class="mt-2 text-[11px]" style="color:#6b7280;">Total Point</p>
+                </div>
+              </div>
+
+              <div class="mt-6 flex items-center justify-center gap-2 text-xs" style="color:#596168;">
+                <img src="../public/assets/icon/icon-member.png" alt="Ikon member" class="h-4 w-4 object-contain">
+                <span>2,847 Peserta Aktif</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative z-10 mx-auto mt-7 max-w-[850px] text-center">
+            <h3 class="text-3xl md:text-[42px] font-bold leading-tight" style="color:#247f72;">
+              Desa Dengan Kontribusi Terbaik Minggu Ini
+            </h3>
+            <p class="mx-auto mt-3 max-w-[780px] text-sm md:text-lg leading-relaxed" style="color:#8b8788;">
+              Desa Ubud menempati posisi teratas karena jumlah laporan tinggi, tingkat penyelesaian terbaik,
+              dan partisipasi warga yang terus meningkat dari minggu ke minggu!
+            </p>
+          </div>
+        </article>
+
+        <!-- RANK 2 & 3 -->
+        <div class="mt-7 grid grid-cols-1 gap-7 md:grid-cols-2">
+
+          <!-- RANK 2 -->
+          <article class="relative overflow-hidden rounded-[20px] bg-white/75 p-4" style="box-shadow:0 16px 30px rgba(28,44,40,0.16);">
+            <div></div>
+
+            <div class="relative z-10 rounded-[18px] border-2 px-6 pt-5 pb-3 text-center" style="border-color:#247f72;">
+              <div class="mx-auto flex max-w-[250px] flex-col items-center">
+                <div class="mb-4 flex h-[52px] w-[52px] items-center justify-center rounded-2xl" style="background:#9b918c; box-shadow:0 10px 22px rgba(28,44,40,0.18);">
+                  <img src="../public/assets/icon/icon-piala.png" alt="Ikon piala" class="h-8 w-8 object-contain">
+                </div>
+                <h3 class="text-xl font-bold leading-none" style="color:#171b2a;">Seminyak</h3>
+                <div class="mt-3 flex items-center justify-center gap-1.5 text-[11px]" style="color:#6b7280;">
+                  <img src="../public/assets/icon/icon-lokasi.png" alt="Ikon lokasi" class="h-3 w-3 object-contain">
+                  <span>Kuta Selatan</span>
+                </div>
+                <div class="my-4 h-px w-full" style="background:#5aa69b;"></div>
+                <p class="text-3xl font-bold leading-none" style="color:#247f72;">94%</p>
+                <div class="mt-4 h-px w-full" style="background:#5aa69b;"></div>
+                <div class="mt-3 flex items-center justify-center gap-2 text-[11px]" style="color:#596168;">
+                  <img src="../public/assets/icon/icon-member.png" alt="Ikon member" class="h-3.5 w-3.5 object-contain">
+                  <span>2,847 Peserta Aktif</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative z-20 mt-4 grid grid-cols-2 gap-3 px-4 pb-0">
+              <div class="rounded-2xl bg-white/90 px-5 py-4 text-center" style="box-shadow:0 8px 18px rgba(28,44,40,0.13);">
+                <p class="text-xl font-bold leading-none" style="color:#171b2a;">312</p>
+                <p class="mt-2 text-[11px]" style="color:#6b7280;">Laporan Masuk</p>
+              </div>
+              <div class="rounded-2xl bg-white/90 px-5 py-4 text-center" style="box-shadow:0 8px 18px rgba(28,44,40,0.13);">
+                <p class="text-xl font-bold leading-none" style="color:#171b2a;">8,940</p>
+                <p class="mt-2 text-[11px]" style="color:#6b7280;">Total Poin</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- RANK 3 -->
+          <article class="relative overflow-hidden rounded-[20px] bg-white/75 p-4" style="box-shadow:0 16px 30px rgba(28,44,40,0.16);">
+            <div></div>
+
+            <div class="relative z-10 rounded-[18px] border-2 px-6 pt-5 pb-3 text-center" style="border-color:#247f72;">
+              <div class="mx-auto flex max-w-[250px] flex-col items-center">
+                <div class="mb-4 flex h-[52px] w-[52px] items-center justify-center rounded-2xl" style="background:#ff730b; box-shadow:0 10px 22px rgba(255,115,11,0.28);">
+                  <img src="../public/assets/icon/icon-piala.png" alt="Ikon piala" class="h-8 w-8 object-contain">
+                </div>
+                <h3 class="text-xl font-bold leading-none" style="color:#171b2a;">Sanur</h3>
+                <div class="mt-3 flex items-center justify-center gap-1.5 text-[11px]" style="color:#6b7280;">
+                  <img src="../public/assets/icon/icon-lokasi.png" alt="Ikon lokasi" class="h-3 w-3 object-contain">
+                  <span>Denpasar Selatan</span>
+                </div>
+                <div class="my-4 h-px w-full" style="background:#5aa69b;"></div>
+                <p class="text-3xl font-bold leading-none" style="color:#247f72;">91%</p>
+                <div class="mt-4 h-px w-full" style="background:#5aa69b;"></div>
+                <div class="mt-3 flex items-center justify-center gap-2 text-[11px]" style="color:#596168;">
+                  <img src="../public/assets/icon/icon-member.png" alt="Ikon member" class="h-3.5 w-3.5 object-contain">
+                  <span>2,847 Peserta Aktif</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative z-20 mt-4 grid grid-cols-2 gap-3 px-4 pb-0">
+              <div class="rounded-2xl bg-white/90 px-5 py-4 text-center" style="box-shadow:0 8px 18px rgba(28,44,40,0.13);">
+                <p class="text-xl font-bold leading-none" style="color:#171b2a;">287</p>
+                <p class="mt-2 text-[11px]" style="color:#6b7280;">Laporan Masuk</p>
+              </div>
+              <div class="rounded-2xl bg-white/90 px-5 py-4 text-center" style="box-shadow:0 8px 18px rgba(28,44,40,0.13);">
+                <p class="text-xl font-bold leading-none" style="color:#171b2a;">7,620</p>
+                <p class="mt-2 text-[11px]" style="color:#6b7280;">Total Poin</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="bg-white border border-gray-200/70 rounded-3xl shadow-sm overflow-hidden reveal reveal-up delay-300">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6 border-b border-gray-100">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900">Semua desa</h3>
+            <p class="text-sm text-gray-500 mt-1">Cari dan pantau posisi desa berdasarkan data terbaru.</p>
+          </div>
+          <div class="relative w-full md:w-72">
+            <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input type="text" id="search-input" placeholder="Cari desa..." oninput="searchDesa(this.value)" class="w-full h-11 rounded-xl border border-gray-200 bg-slate-50 pl-10 pr-4 text-sm text-gray-800 outline-none focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all">
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[820px] border-collapse">
+            <thead class="bg-slate-50">
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500">Peringkat</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500">Desa</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500">Kabupaten</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500">Laporan</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500">Penyelesaian</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500">Poin</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500">Tren</th>
+              </tr>
+            </thead>
+            <tbody id="ranking-table" class="divide-y divide-gray-100"></tbody>
+          </table>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 py-5 border-t border-gray-100">
+          <p id="pagination-info" class="text-sm text-gray-500">Menampilkan 1–10 dari 20 desa</p>
+          <div class="flex items-center gap-2">
+            <button type="button" id="btn-prev" onclick="prevPage()" class="rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:border-primary hover:bg-bali-50 hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer">← Prev</button>
+            <button type="button" id="btn-next" onclick="nextPage()" class="rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:border-primary hover:bg-bali-50 hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer">Next →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="py-14 md:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center mb-10 reveal reveal-up delay-100">
+        <h2 class="text-2xl md:text-4xl font-semibold text-gray-900 tracking-tight">Bagaimana poin dihitung?</h2>
+        <p class="text-sm md:text-base text-gray-500 mt-3 leading-relaxed">
+          Sistem perankingan dibuat transparan dan berbasis data nyata dari laporan warga.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <article class="bg-bali-50 border border-primary/10 rounded-3xl p-7 reveal reveal-up delay-100">
+          <div class="w-14 h-14 rounded-2xl bg-white border border-primary/10 flex items-center justify-center mb-6 shadow-sm">
+            <img src="../public/assets/icon/icon-input.png" alt="Ikon kebersihan" class="h-8 w-8 object-contain" style="filter:invert(39%) sepia(56%) saturate(502%) hue-rotate(127deg) brightness(85%) contrast(95%);">
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Jumlah laporan</h3>
+          <p class="text-sm text-gray-500 leading-relaxed mb-5">Setiap laporan sampah yang dikirim warga desa bernilai <span class="font-semibold text-primary">+10 poin</span> untuk desanya.</p>
+          <span class="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Bobot 40%</span>
+        </article>
+
+        <article class="bg-bali-50 border border-primary/10 rounded-3xl p-7 reveal reveal-up delay-200">
+          <div class="w-14 h-14 rounded-2xl bg-white border border-primary/10 flex items-center justify-center mb-6 shadow-sm">
+            <img src="../public/assets/icon/icon-done.png" alt="Ikon kebersihan" class="h-8 w-8 object-contain" style="filter:invert(39%) sepia(56%) saturate(502%) hue-rotate(127deg) brightness(85%) contrast(95%);">
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Tingkat penyelesaian</h3>
+          <p class="text-sm text-gray-500 leading-relaxed mb-5">Laporan yang berhasil ditangani meningkatkan persentase dan memberi <span class="font-semibold text-primary">bonus poin</span> desa.</p>
+          <span class="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Bobot 40%</span>
+        </article>
+
+        <article class="bg-bali-50 border border-primary/10 rounded-3xl p-7 reveal reveal-up delay-300">
+          <div class="w-14 h-14 rounded-2xl bg-white border border-primary/10 flex items-center justify-center mb-6 shadow-sm">
+            <img src="../public/assets/icon/icon-member.png" alt="Ikon kebersihan" class="h-8 w-8" style="filter:invert(39%) sepia(56%) saturate(502%) hue-rotate(127deg) brightness(85%) contrast(95%);">
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Partisipasi warga</h3>
+          <p class="text-sm text-gray-500 leading-relaxed mb-5">Semakin banyak warga aktif berkontribusi, semakin besar <span class="font-semibold text-primary">multiplier poin</span> yang diperoleh desa.</p>
+          <span class="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Bobot 20%</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative overflow-hidden bg-primary py-16 md:py-20">
+    <div class="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle,white_1.5px,transparent_1.5px)] bg-[length:30px_30px]"></div>
+    <div class="relative z-10 max-w-2xl mx-auto px-6 text-center reveal reveal-up delay-100">
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white">Angkat ranking desamu!</h2>
+      <p class="text-white/70 text-sm md:text-base leading-relaxed mt-5 mb-8">
+        Setiap laporan yang kamu kirim bukan hanya membersihkan lingkungan — tapi juga mengharumkan nama desamu di seluruh Bali.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="pelaporan.html" class="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-primary shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
+          Laporkan sekarang
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="gamifikasi.html" class="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-7 py-3 text-sm font-semibold text-white hover:bg-white/10 hover:-translate-y-0.5 transition-all">
+          Lihat gamifikasi
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer></footer>
+
+  <script src="../src/js/components.js"></script>
+  <script src="../src/js/reveal.js"></script>
+  <script src="../src/js/navbar.js"></script>
+  <script src="../src/js/auth-modal.js"></script>
+  <script>
+    initLayout('type1');
+    initNavbarScroll('type1');
+
+    const allDesa = [
+      { rank: 1,  nama: "Desa Ubud",         kecamatan: "Ubud",             kabupaten: "Gianyar",    laporan: 428, selesai: 97, poin: 12840, tren: "up" },
+      { rank: 2,  nama: "Desa Seminyak",     kecamatan: "Kuta Utara",       kabupaten: "Badung",     laporan: 312, selesai: 94, poin: 8940,  tren: "up" },
+      { rank: 3,  nama: "Desa Sanur",        kecamatan: "Denpasar Selatan", kabupaten: "Denpasar",   laporan: 287, selesai: 91, poin: 7620,  tren: "down" },
+      { rank: 4,  nama: "Desa Canggu",       kecamatan: "Kuta Utara",       kabupaten: "Badung",     laporan: 265, selesai: 89, poin: 6980,  tren: "up" },
+      { rank: 5,  nama: "Desa Jimbaran",     kecamatan: "Kuta Selatan",     kabupaten: "Badung",     laporan: 241, selesai: 93, poin: 6440,  tren: "stable" },
+      { rank: 6,  nama: "Desa Kerobokan",    kecamatan: "Kuta Utara",       kabupaten: "Badung",     laporan: 218, selesai: 88, poin: 5820,  tren: "up" },
+      { rank: 7,  nama: "Desa Legian",       kecamatan: "Kuta",             kabupaten: "Badung",     laporan: 204, selesai: 86, poin: 5340,  tren: "down" },
+      { rank: 8,  nama: "Desa Kedewatan",    kecamatan: "Ubud",             kabupaten: "Gianyar",    laporan: 196, selesai: 95, poin: 5190,  tren: "up" },
+      { rank: 9,  nama: "Desa Lovina",       kecamatan: "Buleleng",         kabupaten: "Buleleng",   laporan: 183, selesai: 82, poin: 4720,  tren: "stable" },
+      { rank: 10, nama: "Desa Amed",         kecamatan: "Abang",            kabupaten: "Karangasem", laporan: 175, selesai: 84, poin: 4490,  tren: "up" },
+      { rank: 11, nama: "Desa Kuta",         kecamatan: "Kuta",             kabupaten: "Badung",     laporan: 168, selesai: 81, poin: 4280,  tren: "down" },
+      { rank: 12, nama: "Desa Nusa Dua",     kecamatan: "Kuta Selatan",     kabupaten: "Badung",     laporan: 162, selesai: 87, poin: 4140,  tren: "up" },
+      { rank: 13, nama: "Desa Sukawati",     kecamatan: "Sukawati",         kabupaten: "Gianyar",    laporan: 154, selesai: 79, poin: 3890,  tren: "stable" },
+      { rank: 14, nama: "Desa Tirta Gangga", kecamatan: "Abang",            kabupaten: "Karangasem", laporan: 147, selesai: 90, poin: 3740,  tren: "up" },
+      { rank: 15, nama: "Desa Padangbai",    kecamatan: "Manggis",          kabupaten: "Karangasem", laporan: 139, selesai: 76, poin: 3480,  tren: "down" },
+      { rank: 16, nama: "Desa Bedugul",      kecamatan: "Baturiti",         kabupaten: "Tabanan",    laporan: 132, selesai: 83, poin: 3310,  tren: "stable" },
+      { rank: 17, nama: "Desa Tampaksiring", kecamatan: "Tampaksiring",     kabupaten: "Gianyar",    laporan: 124, selesai: 85, poin: 3120,  tren: "up" },
+      { rank: 18, nama: "Desa Mas",          kecamatan: "Ubud",             kabupaten: "Gianyar",    laporan: 118, selesai: 78, poin: 2940,  tren: "stable" },
+      { rank: 19, nama: "Desa Pemuteran",    kecamatan: "Gerokgak",         kabupaten: "Buleleng",   laporan: 112, selesai: 80, poin: 2790,  tren: "up" },
+      { rank: 20, nama: "Desa Munduk",       kecamatan: "Banjar",           kabupaten: "Buleleng",   laporan: 106, selesai: 77, poin: 2640,  tren: "down" }
+    ];
+
+    let currentPage = 1;
+    const perPage = 10;
+    let filteredDesa = [...allDesa];
+
+    function getSelesaiClass(pct) {
+      if (pct >= 90) return { bar: 'bg-success', text: 'text-success' };
+      if (pct >= 75) return { bar: 'bg-warning', text: 'text-warning' };
+      return { bar: 'bg-error', text: 'text-error' };
+    }
+
+    function trenHtml(t) {
+      if (t === 'up')   return '<span class="inline-flex items-center gap-1 text-xs font-medium text-success">↑ Naik</span>';
+      if (t === 'down') return '<span class="inline-flex items-center gap-1 text-xs font-medium text-error">↓ Turun</span>';
+      return '<span class="inline-flex items-center gap-1 text-xs font-medium text-gray-400">— Stabil</span>';
+    }
+
+    function rankBadge(r) {
+      if (r === 1) return `<div class="flex h-9 w-9 items-center justify-center rounded-full border border-primary/15 bg-primary/10 text-sm font-semibold text-primary">${r}</div>`;
+      if (r <= 3)  return `<div class="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-gray-50 text-sm font-semibold text-gray-700">${r}</div>`;
+      return `<div class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-50 text-sm font-semibold text-gray-500">${r}</div>`;
+    }
+
+    function renderTable(data) {
+      const tbody = document.getElementById('ranking-table');
+      const start = (currentPage - 1) * perPage;
+      const slice = data.slice(start, start + perPage);
+
+      if (!slice.length) {
+        tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-12 text-center text-sm text-gray-400">Desa tidak ditemukan.</td></tr>`;
+        document.getElementById('pagination-info').textContent = 'Tidak ada desa yang ditampilkan';
+        document.getElementById('btn-prev').disabled = true;
+        document.getElementById('btn-next').disabled = true;
+        return;
+      }
+
+      tbody.innerHTML = slice.map(d => {
+        const sc = getSelesaiClass(d.selesai);
+        return `
+          <tr class="transition-colors hover:bg-bali-50/60">
+            <td class="px-6 py-4 align-middle">${rankBadge(d.rank)}</td>
+            <td class="px-6 py-4 align-middle">
+              <div>
+                <p class="font-semibold text-gray-900">${d.nama}</p>
+                <p class="text-xs text-gray-400 mt-0.5">${d.kecamatan}</p>
+              </div>
+            </td>
+            <td class="px-6 py-4 align-middle">
+              <span class="inline-flex rounded-full border border-primary/10 bg-bali-50 px-3 py-1 text-xs font-medium text-primary whitespace-nowrap">${d.kabupaten}</span>
+            </td>
+            <td class="px-6 py-4 align-middle font-semibold text-gray-800">${d.laporan}</td>
+            <td class="px-6 py-4 align-middle">
+              <div class="flex items-center gap-3 min-w-36">
+                <div class="h-1.5 w-24 overflow-hidden rounded-full bg-slate-100">
+                  <div class="h-full rounded-full ${sc.bar}" style="width:${d.selesai}%"></div>
+                </div>
+                <span class="text-sm font-semibold ${sc.text}">${d.selesai}%</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 align-middle font-bold text-primary">${d.poin.toLocaleString('id-ID')}</td>
+            <td class="px-6 py-4 align-middle">${trenHtml(d.tren)}</td>
+          </tr>`;
+      }).join('');
+
+      const total = data.length;
+      const from  = start + 1;
+      const to    = Math.min(start + perPage, total);
+      document.getElementById('pagination-info').textContent = `Menampilkan ${from}–${to} dari ${total} desa`;
+      document.getElementById('btn-prev').disabled = currentPage === 1;
+      document.getElementById('btn-next').disabled = to >= total;
+    }
+
+    function prevPage() {
+      if (currentPage > 1) { currentPage--; renderTable(filteredDesa); }
+    }
+
+    function nextPage() {
+      if (currentPage * perPage < filteredDesa.length) { currentPage++; renderTable(filteredDesa); }
+    }
+
+    function searchDesa(q) {
+      currentPage = 1;
+      const keyword = q.trim().toLowerCase();
+      filteredDesa = keyword
+        ? allDesa.filter(d => [d.nama, d.kabupaten, d.kecamatan].some(s => s.toLowerCase().includes(keyword)))
+        : [...allDesa];
+      renderTable(filteredDesa);
+    }
+
+    function setFilter(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active', 'text-white');
+        b.classList.add('text-gray-500');
+        b.style.background = 'transparent';
+      });
+      btn.classList.add('active', 'text-white');
+      btn.classList.remove('text-gray-500');
+      btn.style.background = '#247f72';
+      currentPage = 1;
+      filteredDesa = [...allDesa];
+      renderTable(filteredDesa);
+    }
+
+    renderTable(filteredDesa);
+  </script>
+</body>
+</html>
