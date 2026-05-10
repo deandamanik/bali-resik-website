@@ -4,47 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peta Sampah - Bali Resik</title>
-    
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="./src/css/output.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+
     <style>
         #navbar {
-        z-index: 9999 !important;
+            z-index: 9999 !important;
         }
-
         #hamburger-btn {
-        position: relative;
-        z-index: 10000 !important;
-        pointer-events: auto !important;
+            position: relative;
+            z-index: 10000 !important;
+            pointer-events: auto !important;
         }
-
         .leaflet-container,
         .leaflet-pane,
         .leaflet-top,
         .leaflet-bottom,
         .leaflet-control {
-        z-index: 1 !important;
+            z-index: 1 !important;
+        }
+
+        .layer-btn {
+            transition: all 0.2s ease;
+        }
+        .layer-btn.active {
+            background-color: #153C35;
+            color: white;
+            border-color: #153C35;
+        }
+        .layer-btn:not(.active) {
+            background-color: white;
+            color: #153C35;
+            border-color: #e5e7eb;
         }
     </style>
-  <link rel="icon" type="image/png" href="../public/assets/logo/Logo-Green.png">
+    <link rel="icon" type="image/png" href="../public/assets/logo/Logo-Green.png">
 </head>
 
 <body class="bg-white text-gray-900 h-screen overflow-hidden flex flex-col font-[Poppins]">
-    <header class="relative z-[999]"></header>
+    <header class="relative z-999"></header>
 
     <main class="relative flex-1 overflow-hidden mt-[84px] sm:mt-[92px]">
         <div class="flex h-full w-full relative">
             <div id="map-container" class="absolute inset-0 z-0 bg-gray-50"></div>
 
             <div class="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-auto lg:top-8 lg:left-8 z-10 flex flex-col gap-3 pointer-events-none animate-slideInLeft">
+
                 <div class="bg-white/70 backdrop-blur-lg px-4 sm:px-6 py-4 rounded-[30px] border border-white/40 shadow-[0_8px_32px_0_rgba(21,60,53,0.08)] pointer-events-auto max-w-full sm:max-w-fit">
                     <h3 class="text-sm font-semibold text-[#153C35] tracking-tight flex items-center gap-2">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#153C35] opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#153C35]"></span>
                         </span>
                         Monitoring Sebaran Sampah
                     </h3>
@@ -53,22 +67,53 @@
                 <div class="bg-white/70 backdrop-blur-lg p-4 rounded-[25px] border border-white/40 shadow-[0_8px_32px_0_rgba(21,60,53,0.08)] pointer-events-auto w-full sm:w-fit">
                     <div class="flex flex-wrap items-center gap-4 sm:gap-5 px-1">
                         <div class="flex items-center gap-2">
-                            <div class="w-2.5 h-2.5 rounded-full bg-error"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
                             <span class="text-[10px] font-medium text-gray-500 tracking-wider">Kritis</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <div class="w-2.5 h-2.5 rounded-full bg-warning"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
                             <span class="text-[10px] font-medium text-gray-500 tracking-wider">Waspada</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#1F7A6B]"></div>
                             <span class="text-[10px] font-medium text-gray-500 tracking-wider">Selesai</span>
+                        </div>
+                        <div class="w-px h-4 bg-gray-200"></div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+                            <span class="text-[10px] font-medium text-gray-500 tracking-wider">Bank Sampah</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-white/70 backdrop-blur-lg p-3 rounded-[25px] border border-white/40 shadow-[0_8px_32px_0_rgba(21,60,53,0.08)] pointer-events-auto w-full sm:w-fit">
+                    <p class="text-[9px] font-semibold text-gray-400 tracking-widest uppercase mb-2 px-1">Tampilkan Layer</p>
+                    <div class="flex flex-wrap gap-2">
+                        <button id="btn-laporan" class="layer-btn active text-[11px] font-medium px-3 py-1.5 rounded-full border text-xs">
+                            Laporan
+                        </button>
+                        <button id="btn-heatmap" class="layer-btn text-[11px] font-medium px-3 py-1.5 rounded-full border text-xs">
+                            Heatmap
+                        </button>
+                        <button id="btn-tpa" class="layer-btn text-[11px] font-medium px-3 py-1.5 rounded-full border text-xs">
+                            TPA
+                        </button>
+                        <button id="btn-banksampah" class="layer-btn text-[11px] font-medium px-3 py-1.5 rounded-full border text-xs">
+                            Bank Sampah
+                        </button>
+                    </div>
+                </div>
+
+                <button id="btn-nearest" class="bg-[#153C35] text-white px-4 py-3 rounded-[20px] shadow-lg pointer-events-auto flex items-center gap-2 text-sm font-semibold hover:bg-[#1F7A6B] transition-all w-full sm:w-fit">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Temukan Bank Sampah Terdekat
+                </button>
             </div> 
 
-            <div id="side-panel" class="absolute top-4 right-4 bottom-4 left-4 sm:top-6 sm:right-6 sm:bottom-6 sm:left-auto sm:w-[24rem] lg:top-8 lg:right-8 lg:bottom-8 lg:w-[28rem] bg-white rounded-[28px] sm:rounded-[36px] lg:rounded-[45px] shadow-2xl z-20 transform translate-x-[120%] transition-transform duration-700 ease-in-out border border-gray-100 overflow-hidden flex flex-col">
+            <div id="side-panel" class="absolute top-4 right-4 bottom-16 left-4 sm:top-6 sm:right-6 sm:bottom-28 sm:left-auto sm:w-[24rem] lg:top-8 lg:right-8 lg:bottom-32 lg:w-md bg-white rounded-[28px] sm:rounded-[36px] lg:rounded-[45px] shadow-2xl z-20 transform translate-x-[120%] transition-transform duration-700 ease-in-out border border-gray-100 overflow-hidden flex flex-col">
                 <button onclick="closeDetail()" class="absolute top-5 right-5 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-30 p-3 bg-gray-50 text-[#153C35] rounded-full hover:bg-red-500 hover:text-white transition-all shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
@@ -80,7 +125,6 @@
     </main>
 
     <script src="../src/js/components.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="../src/js/map-handler.js"></script> 
     <script src="../src/js/navbar.js"></script>
     <script src="../src/js/auth-modal.js"></script>
