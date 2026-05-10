@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./src/css/output.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../public/assets/logo/Logo-Green.png">
+</head>
+<body class="font-poppins text-gray-900 overflow-x-hidden">
+
+<header></header>
+
+<section class="relative bg-gray-950 min-h-[95vh] overflow-hidden text-white rounded-b-[40px] shadow-2xl">
+    <div class="absolute inset-0 z-0">
+        <div id="hero-slider" class="relative w-full h-full">
+            <img src="../public/assets/img/img-home-1.jpg" alt="Bali 1" class="hero-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+            <img src="../public/assets/img/img-home-2.jpg" alt="Bali 2" class="hero-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+            <img src="../public/assets/img/img-home-3.jpg" alt="Bali 3" class="hero-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+        </div>
+
+        <div class="absolute inset-0 bg-hero-overlay"></div>
+        <div class="absolute inset-0 bg-linear-to-b from-black/60 via-transparent to-black/20"></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col min-h-[95vh]">
+        
+        <div class="grow flex flex-col justify-center max-w-4xl mt-20">
+            <h2 class="reveal reveal-left font-animal text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 tracking-wide drop-shadow-2xl">
+                Restoring Bali's Harmony Through <br>
+                Smart Waste Management
+            </h2>
+            
+            <p class="reveal reveal-up delay-200 text-gray-200 text-base md:text-lg font-light mb-10 max-w-xl leading-relaxed opacity-90">
+                Inspired by <span class="font-semibold italic">Tri Hita Karana</span>, uniting people, nature, and technology to restore balance in Bali.
+            </p>
+            
+            <div class="reveal reveal-up delay-400 flex flex-wrap gap-4">
+                <button class="group relative overflow-hidden bg-white text-primary px-8 py-3 rounded-full text-base font-bold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,255,255,0.3)] active:scale-95 cursor-pointer">
+                    <a href="pelaporan.html"><span class="relative z-10">Laporkan Sampah</span></a>
+                    <div class="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                </button>
+
+                <a href="peta-sampah.html"><button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-base font-semibold backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 hover:bg-white hover:text-primary hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)] active:scale-95 cursor-pointer">
+                    Lihat Peta Sampah
+                </button></a>
+            </div>
+        </div>
+
+        <div id="hero-dots" class="pb-10 flex justify-center items-center gap-3">
+            <div class="dot w-8 h-1.5 rounded-full bg-[#1F7A6B] transition-all duration-500 ease-in-out shadow-[0_0_10px_rgba(31,122,107,0.5)] cursor-pointer"></div>
+            <div class="dot w-2 h-1.5 rounded-full bg-white/30 transition-all duration-500 ease-in-out hover:bg-white/50 cursor-pointer"></div>
+            <div class="dot w-2 h-1.5 rounded-full bg-white/30 transition-all duration-500 ease-in-out hover:bg-white/50 cursor-pointer"></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6 lg:px-40">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12 reveal reveal-up">
+      <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6">
+        Tantangan Lingkungan di Bali
+      </h2>
+      <p class="text-gray-500 text-md leading-relaxed">
+        Di balik keindahan Bali, ada masalah sampah yang makin serius. Kondisi ini mulai berdampak ke alam, tempat suci, kesehatan masyarakat, sampai keseimbangan hidup masyarakat Bali.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mb-20">
+      
+      <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center reveal reveal-up delay-100">
+        <div class="w-16 h-16 bg-bali-50 rounded-xl flex items-center justify-center mx-auto mb-6">
+          <img src="../public/assets/icon/Icon-home-1.png" alt="Trend" class="h-8 w-8">
+        </div>
+        <div class="flex items-baseline justify-center gap-1 mb-3">
+          <span class="text-4xl font-bold text-gray-900">3,800</span>
+          <span class="text-gray-500 font-medium text-sm">ton/hari</span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Setiap hari Bali menghasilkan ribuan ton sampah, dan jumlahnya terus naik karena pariwisata dan perkembangan kota.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center reveal reveal-up delay-300">
+        <div class="w-16 h-16 bg-bali-50 rounded-xl flex items-center justify-center mx-auto mb-6">
+          <img src="../public/assets/icon/Icon-home-2.png" alt="Trash" class="h-8 w-8">
+        </div>
+        <div class="mb-3">
+          <span class="text-4xl font-bold text-gray-900">48<span class="text-2xl">%</span></span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Hampir setengah sampah di Bali masih berakhir di pembuangan terbuka atau bocor ke lingkungan sekitar.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center reveal reveal-up delay-500">
+        <div class="w-16 h-16 bg-bali-50 rounded-xl flex items-center justify-center mx-auto mb-6">
+          <img src="../public/assets/icon/Icon-home-3.png" alt="Sea" class="h-8 w-8">
+        </div>
+        <div class="flex items-baseline justify-center gap-1 mb-3">
+          <span class="text-4xl font-bold text-gray-900">33</span>
+          <span class="text-gray-500 font-medium text-sm">ton</span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Sampah plastik yang masuk ke laut Bali setiap tahun mengancam ekosistem laut dan pariwisata pesisir.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+  <div class="relative rounded-3xl overflow-hidden shadow-2xl group reveal reveal-left aspect-4/3">
+    
+    <div id="impact-slider" class="relative w-full h-full">
+      <img src="../public/assets/img/bali-tercemar-1.jpg" class="impact-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+      <img src="../public/assets/img/bali-tercemar-2.jpg" class="impact-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+      <img src="../public/assets/img/bali-tercemar-3.jpg" class="impact-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+    </div>
+
+    <div class="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-black/70 to-transparent pointer-events-none z-5"></div>
+
+    <div class="absolute bottom-6 left-6 z-10">
+      <span class="bg-white text-primary px-5 py-2 rounded-xl font-semibold text-xs tracking-wider shadow-lg">
+        Zona Dampak Lingkungan
+      </span>
+    </div>
+
+    <div id="impact-dots" class="absolute bottom-8 right-6 z-10 flex gap-2">
+      <div class="impact-dot w-8 h-1.5 rounded-full bg-primary transition-all duration-500 shadow-[0_0_15px_rgba(31,122,107,0.8)]"></div>
+      <div class="impact-dot w-2 h-1.5 rounded-full bg-white/50 transition-all duration-500"></div>
+      <div class="impact-dot w-2 h-1.5 rounded-full bg-white/50 transition-all duration-500"></div>
+    </div>
+
+  </div>
+
+      <div class="space-y-8">
+        
+        <div class="flex gap-6 border-l-4 border-primary pl-6 py-1 reveal reveal-right delay-100">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Pariwisata yang Overload</h4>
+            <p class="text-gray-500 leading-relaxed">
+              Jutaan wisatawan datang setiap tahun, tapi kapasitas pengolahan sampah belum mampu mengimbangi.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 border-l-4 border-primary pl-6 py-1 reveal reveal-right delay-200">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Tempat Suci Ikut Terdampak</h4>
+            <p class="text-gray-500 leading-relaxed">
+              Sungai yang melewati area pura mulai tercemar, mengganggu kesucian dan lingkungan sekitar.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 border-l-4 border-primary pl-6 py-1 reveal reveal-right delay-300">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Dampak ke Kesehatan & Ekonomi</h4>
+            <p class="text-gray-500 leading-relaxed">
+              Air yang tercemar dan pembuangan liar berdampak ke pertanian, perikanan, dan kesehatan masyarakat.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 border-l-4 border-primary pl-6 py-1 reveal reveal-right delay-400">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Keseimbangan Alam Terganggu</h4>
+            <p class="text-gray-500 leading-relaxed">
+              Kerusakan lingkungan juga mempengaruhi keseimbangan hidup yang menjadi bagian penting budaya Bali.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-24 mt-12 relative z-20 bg-bali-50 rounded-t-3xl shadow-[0_-8px_30px_rgba(0,0,0,0.08)] overflow-hidden">
+  <div class="container mx-auto px-6 lg:px-36 text-center">
+    
+    <div class="max-w-3xl mx-auto mb-20 reveal reveal-up">
+      <h2 class="text-5xl font-semibold text-gray-900 mb-6">Cara Kerja Lapor Sampah</h2>
+      <p class="text-gray-500 text-md leading-relaxed">
+        Langkah sederhana untuk melaporkan sampah dan membantu menjaga Bali tetap bersih secara real-time.
+      </p>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 relative mb-20">
+      
+      <div class="hidden md:block absolute top-10 left-[10%] right-[10%] border-t-2 border-primary/20 border-dashed z-0 reveal delay-700"></div>
+
+      <div class="flex-1 flex flex-col items-center group relative z-10 reveal reveal-left delay-100">
+        <div class="relative mb-8">
+          <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+            <img src="../public/assets/icon/icon-home-4.png" alt="Upload" class="w-10 h-10 object-contain brightness-0 invert">
+          </div>
+          <div class="absolute -top-1 -right-1 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100 font-bold text-gray-900">
+            1
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Upload Foto</h3>
+        <p class="text-gray-500 text-sm leading-relaxed max-w-50">
+          Ambil foto sampah langsung dari kamera atau unggah dari perangkat kamu.
+        </p>
+      </div>
+
+      <div class="flex-1 flex flex-col items-center group relative z-10 reveal reveal-left delay-300">
+        <div class="relative mb-8">
+          <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+            <img src="../public/assets/icon/icon-home-5.png" alt="GPS" class="w-10 h-10 object-contain brightness-0 invert">
+          </div>
+          <div class="absolute -top-1 -right-1 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100 font-bold text-gray-900">
+            2
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Deteksi GPS Otomatis</h3>
+        <p class="text-gray-500 text-sm leading-relaxed max-w-50">
+          Lokasi kamu akan terdeteksi otomatis melalui GPS, sehingga laporan langsung terpetakan dengan tepat.
+        </p>
+      </div>
+
+      <div class="flex-1 flex flex-col items-center group relative z-10 reveal reveal-left delay-500">
+        <div class="relative mb-8">
+          <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+            <img src="../public/assets/icon/icon-home-6.png" alt="Action" class="w-10 h-10 object-contain brightness-0 invert">
+          </div>
+          <div class="absolute -top-1 -right-1 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100 font-bold text-gray-900">
+            3
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Pilih Aksi</h3>
+        <p class="text-gray-500 text-sm leading-relaxed max-w-50">
+          Tentukan tindakan yang ingin kamu lakukan bersihkan sendiri atau kirim laporan agar petugas menanganinya.
+        </p>
+      </div>
+
+      <div class="flex-1 flex flex-col items-center group relative z-10 reveal reveal-up delay-700">
+        <div class="relative mb-8">
+          <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+            <img src="../public/assets/icon/icon-home-7.png" alt="Send" class="w-10 h-10 object-contain brightness-0 invert flex-none">
+          </div>
+          <div class="absolute -top-1 -right-1 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100 font-bold text-gray-900">
+            4
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Kirim & Pantau</h3>
+        <p class="text-gray-500 text-sm leading-relaxed max-w-50">
+          Kirim laporan dan pantau status penanganannya secara langsung sampai selesai.
+        </p>
+      </div>
+
+    </div>
+
+    <button class="bg-white text-primary border border-primary/10 px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:-translate-y-1 reveal reveal-up delay-900">
+      Mulai Lapor Sekarang →
+    </button>
+
+  </div>
+</section>
+
+<section class="py-24 bg-white relative z-10 overflow-hidden">
+  <div class="container mx-auto px-6 lg:px-36 text-center">
+    
+    <div class="max-w-3xl mx-auto mb-20 relative reveal reveal-up">
+      <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6">Setiap Aksi Punya Dampak</h2>
+      <p class="text-gray-500 text-md leading-relaxed max-w-xl mx-auto">
+        Langkah sederhana untuk melaporkan sampah dan membantu menjaga Bali tetap bersih secara real-time.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      
+      <div class="relative bg-primary text-white p-8 rounded-tl-[60px] rounded-br-[60px] shadow-lg border border-primary/5 flex flex-col items-center justify-center group hover:-translate-y-2 transition-all duration-300 min-h-72 reveal reveal-up delay-100">
+        <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 bg-bali-600 text-white rounded-full flex items-center justify-center font-bold text-3xl shadow-lg border-4 border-white z-10 flex-none">
+          1
+        </div>
+        <h3 class="text-xl font-bold mb-4 mt-8">Lingkungan Lebih Bersih</h3>
+        <div class="w-24 border-t-2 border-white mb-6"></div>
+        <p class="text-bali-50/80 text-sm leading-relaxed max-w-64">
+          Laporan yang kamu kirim membantu mengurangi sampah di sekitar dan mencegah penumpukan yang bisa merusak lingkungan.
+        </p>
+      </div>
+
+      <div class="relative bg-white text-gray-900 p-8 rounded-tl-[60px] rounded-br-[60px] shadow-lg border border-gray-100 flex flex-col items-center justify-center group hover:-translate-y-2 transition-all duration-300 min-h-72 reveal reveal-up delay-200">
+        <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-bold text-3xl shadow-lg border-4 border-white z-10 flex-none">
+          2
+        </div>
+        <h3 class="text-xl font-bold mb-4 mt-8 text-primary">Laporan Ditangani Lebih Cepat</h3>
+        <div class="w-24 border-t-2 border-primary mb-6"></div>
+        <p class="text-gray-500 text-sm leading-relaxed max-w-64">
+          Petugas dapat langsung melihat lokasi dan detail laporan, sehingga proses penanganan bisa dilakukan lebih cepat dan tepat.
+        </p>
+      </div>
+
+      <div class="relative bg-primary text-white p-8 rounded-tl-[60px] rounded-br-[60px] shadow-lg border border-primary/5 flex flex-col items-center justify-center group hover:-translate-y-2 transition-all duration-300 min-h-72 reveal reveal-up delay-300">
+        <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 bg-bali-600 text-white rounded-full flex items-center justify-center font-bold text-3xl shadow-lg border-4 border-white z-10 flex-none">
+          3
+        </div>
+        <h3 class="text-xl font-bold mb-4 mt-8">Dapat Poin & Badge</h3>
+        <div class="w-24 border-t-2 border-white mb-6"></div>
+        <p class="text-bali-50/80 text-sm leading-relaxed max-w-64">
+          Setiap aksi yang kamu lakukan akan mendapatkan poin dan badge sebagai bentuk apresiasi atas kontribusimu menjaga lingkungan.
+        </p>
+      </div>
+
+      <div class="relative bg-white text-gray-900 p-8 rounded-tl-[60px] rounded-br-[60px] shadow-lg border border-gray-100 flex flex-col items-center justify-center group hover:-translate-y-2 transition-all duration-300 min-h-72 reveal reveal-up delay-400">
+        <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-bold text-3xl shadow-lg border-4 border-white z-10 flex-none">
+          4
+        </div>
+        <h3 class="text-xl font-bold mb-4 mt-8 text-primary">Dampak untuk Komunitas</h3>
+        <div class="w-24 border-t-2 border-primary mb-6"></div>
+        <p class="text-gray-500 text-sm leading-relaxed max-w-64">
+          Kontribusimu tidak hanya membersihkan satu titik, tetapi juga membantu menjaga kebersihan dan keharmonisan lingkungan Bali secara bersama.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-bali-50 relative z-10 overflow-hidden">
+  <div class="container mx-auto px-6 lg:px-36">
+    
+    <div class="text-center mb-12 reveal reveal-up">
+      <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6">Dari Mereka yang Beraksi</h2>
+      <p class="text-gray-500 text-md leading-relaxed">
+        Pengalaman mereka yang ikut menjaga Bali tetap bersih.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      
+      <div class="bg-white p-8 rounded-3xl shadow-xl border border-primary/10 flex items-center gap-6 group hover:shadow-2xl transition-all duration-300 reveal reveal-left delay-100">
+        <div class="relative flex-none">
+          <div class="w-24">
+            <img src="../public/assets/img/Bali-Anca.png" alt="Anca Wikan Canggu" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div>
+          <p class="text-gray-600 italic mb-2 leading-relaxed">
+            "Melaporkan sampah mudah, dan penanganannya cepat. Lingkungan sekitar jadi lebih bersih."
+          </p>
+          <h4 class="font-bold text-gray-900">- Anca Wikan Canggu</h4>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 rounded-3xl shadow-xl border border-primary/10 flex items-center gap-6 group hover:shadow-2xl transition-all duration-300 reveal reveal-right delay-200">
+        <div class="relative flex-none">
+          <div class="w-24">
+            <img src="../public/assets/img/Bali-Joey.png" alt="Januarta Joey Nusa Dua" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div>
+          <p class="text-gray-600 italic mb-2 leading-relaxed">
+            "Bisa bersihkan sendiri atau lapor petugas. Selain membantu lingkungan, saya juga dapat poin."
+          </p>
+          <h4 class="font-bold text-gray-900">- Januarta Joey Nusa Dua</h4>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center border-t border-primary/10 pt-16">
+      
+      <div class="flex flex-col items-center reveal reveal-up delay-100">
+        <span class="text-4xl md:text-5xl font-semibold text-primary mb-2">4,891+</span>
+        <p class="text-gray-500 font-normal">Total Laporan Masuk</p>
+      </div>
+
+      <div class="flex flex-col items-center reveal reveal-up delay-200">
+        <span class="text-4xl md:text-5xl font-semibold text-primary mb-2">92%</span>
+        <p class="text-gray-500 font-normal">Laporan Terselesaikan</p>
+      </div>
+
+      <div class="flex flex-col items-center reveal reveal-up delay-300">
+        <span class="text-4xl md:text-5xl font-semibold text-primary mb-2">2.3 Ton</span>
+        <p class="text-gray-500 font-normal">Sampah Tertangani</p>
+      </div>
+
+      <div class="flex flex-col items-center reveal reveal-up delay-400">
+        <span class="text-4xl md:text-5xl font-semibold text-primary mb-2">320+</span>
+        <p class="text-gray-500 font-normal">Warga Berkontribusi</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer></footer>
+
+
+  <script src="../src/js/navbar.js"></script>
+  <script src="../src/js/hero-slider.js"></script>
+  <script src="../src/js/reveal.js"></script>
+  <script src="../src/js/impact-slider.js"></script>
+  <script src="../src/js/auth-modal.js"></script>
+  <script src="../src/js/components.js"></script>
+
+    <script>
+    initLayout('type1'); 
+    initNavbarScroll('type1');
+</script>
+
+</body>
+</html>
