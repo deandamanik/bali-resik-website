@@ -13,32 +13,54 @@
 </head>
 <body class="font-poppins bg-slate-50 text-gray-900 min-h-screen flex flex-col">
 
-  <header></header>
-
   <main class="grow pt-28 pb-20">
     <div class="container mx-auto px-6 lg:px-12">
       
-      <div class="max-w-5xl mx-auto mb-10 text-center md:text-left">
-         <h1 class="text-3xl md:text-4xl font-semibold text-gray-900">Pengaturan Profil</h1>
-         <p class="text-gray-500 mt-2 text-sm md:text-base">Kelola informasi data diri, keamanan akun, dan pantau rank serta reward kamu.</p>
-      </div>
+<div class="max-w-5xl mx-auto mb-10 text-center md:text-left reveal">
 
-      <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-8">
+  <a href="index.html" 
+     class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-primary mb-4 transition">
+     <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-4 h-4" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+             d="M15 19l-7-7 7-7" />
+     </svg>
+     Kembali ke Beranda
+  </a>
+
+  <h1 class="text-3xl md:text-4xl font-semibold text-gray-900">
+    Pengaturan Profil
+  </h1>
+
+  <p class="text-gray-500 mt-2 text-sm md:text-base">
+    Kelola informasi data diri, keamanan akun, dan pantau rank serta reward kamu.
+  </p>
+
+</div>
+
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 reveal">
         
-        <!-- Sidebar / Photo / Reward Summary -->
-        <div class="w-full md:w-[320px] shrink-0 flex flex-col gap-6">
+        <!-- Sidebar -->
+        <div class="w-full md:w-[320px] shrink-0 flex flex-col gap-6 reveal">
           
           <!-- Photo Card -->
-          <div class="bg-white rounded-3xl border border-gray-200/60 shadow-sm p-8 text-center">
+          <div class="bg-white rounded-3xl border border-gray-200/60 shadow-sm p-8 text-center reveal">
             <div class="relative w-28 h-28 mx-auto mb-5">
               <div id="profileDropzone" class="w-full h-full rounded-full overflow-hidden border-4 border-bali-50 bg-slate-50 cursor-pointer flex items-center justify-center group relative shadow-md transition-transform hover:scale-105">
                 <img id="profilePreview" src="../public/assets/icon/Icon-User.png" alt="Foto profile" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                   </svg>
                 </div>
               </div>
               <input type="file" id="profileImageInput" class="hidden" accept="image/png, image/jpeg, image/jpg">
             </div>
+
             <h3 id="profileNameDisplay" class="text-lg font-semibold text-gray-900 leading-tight">Tut Anca</h3>
             <p class="text-[13px] text-gray-500 mt-1 mb-5">Pejuang Lingkungan</p>
             
@@ -47,9 +69,8 @@
             </button>
           </div>
 
-          <!-- Reward Stats -->
-          <div class="bg-[#10685B] rounded-3xl shadow-sm p-6 text-white relative overflow-hidden">
-             <!-- Background pattern -->
+          <!-- Reward -->
+          <div class="bg-[#10685B] rounded-3xl shadow-sm p-6 text-white relative overflow-hidden reveal">
              <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full border-[6px] border-white/10 opacity-60"></div>
              <div class="absolute -bottom-8 -left-8 w-24 h-24 rounded-full border-[6px] border-white/10 opacity-60"></div>
              
@@ -69,12 +90,12 @@
           </div>
         </div>
 
-        <!-- Form Area -->
-        <div class="flex-1 bg-white rounded-3xl border border-gray-200/60 shadow-sm p-6 md:p-10">
+        <!-- Form -->
+        <div class="flex-1 bg-white rounded-3xl border border-gray-200/60 shadow-sm p-6 md:p-10 reveal">
           
           <form id="profileForm" class="space-y-8">
-            <!-- Section 1 -->
-            <div>
+
+            <div class="reveal">
               <h3 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-6">Informasi Akun</h3>
               
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -90,8 +111,7 @@
               </div>
             </div>
 
-            <!-- Section 2 -->
-            <div>
+            <div class="reveal-up">
               <h3 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-6 mt-10">Keamanan</h3>
               
               <div class="space-y-6">
@@ -114,11 +134,12 @@
               </div>
             </div>
 
-            <div class="pt-8 mt-10 border-t border-gray-100 flex justify-end">
+            <div class="pt-8 mt-10 border-t border-gray-100 flex justify-end reveal">
               <button id="saveProfileBtn" type="submit" class="bg-[#10685B] text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-bali-700 transition duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto text-center cursor-pointer">
                 Simpan Perubahan
               </button>
             </div>
+
           </form>
 
         </div>
@@ -130,9 +151,10 @@
   <script src="../src/js/navbar.js"></script>
   <script src="../src/js/components.js"></script>
   <script src="../src/js/profile.js"></script>
+  <script src="../src/js/reveal.js"></script>
   <script>
     initLayout('type1');
-    initNavbarScroll('type1');
   </script>
+
 </body>
 </html>

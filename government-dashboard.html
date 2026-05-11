@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview - Bali Resik Government Dashboard</title>
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="./src/css/output.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../public/assets/logo/Logo-Green.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .metric-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:16px 16px 0 0; }
+        .metric-green::before { background:#4CAF8A; }
+        .metric-amber::before { background:#F59E0B; }
+        .metric-blue::before  { background:#3B82F6; }
+        .nav-item { transition:all 0.15s; }
+        .nav-item.active { background:rgba(255,255,255,0.15); color:#fff; }
+        .nav-item:not(.active) { color:rgba(255,255,255,0.6); }
+        .nav-item:hover:not(.active) { background:rgba(255,255,255,0.08); color:#fff; }
+        .live-dot { animation:pulse-dot 1.5s infinite; }
+        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(0.8);} }
+        .section-line::after { content:''; flex:1; height:1px; background:#e8ede8; }
+        .period-tab.active { background:#153C35; color:#fff; }
+    </style>
+</head>
+
+<body class="bg-[#F4F6F3] text-[#153C35] flex min-h-screen">
+
+    <!-- SIDEBAR -->
+    <aside class="w-[220px] bg-[#153C35] min-h-screen flex flex-col fixed left-0 top-0 bottom-0 z-50 pb-6">
+        <div class="px-5 py-6 border-b border-white/10 mb-4">
+            <div class="text-[18px] font-bold text-white tracking-tight">Bali Resik</div>
+            <div class="text-[10px] text-white/40 uppercase tracking-widest mt-0.5">Government Dashboard</div>
+        </div>
+        <nav class="px-3 flex flex-col gap-0.5" id="sidebar-nav"></nav>
+        <div class="mt-auto px-3">
+            <div class="rounded-xl p-3 flex items-center gap-3" style="background:rgba(255,255,255,0.08);">
+                <div class="w-8 h-8 rounded-full bg-[#4CAF8A] flex items-center justify-center text-[11px] font-bold text-white shrink-0">DLH</div>
+                <div>
+                    <div class="text-[12px] font-semibold text-white">Dinas LH Bali</div>
+                    <div class="text-[10px] text-white/40">Administrator</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="ml-[220px] flex-1 p-7 pb-16">
+
+        <!-- TOPBAR -->
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <h1 class="text-[20px] font-bold text-[#153C35] tracking-tight">Overview Dashboard</h1>
+                <p class="text-[12px] text-[#6B7A6B] mt-0.5">Provinsi Bali — Data real-time per Mei 2026</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 bg-white border border-[#E8EDE8] rounded-full px-3 py-1.5 text-[11px] font-semibold text-[#1F7A6B]">
+                    <span class="live-dot w-1.5 h-1.5 rounded-full bg-[#4CAF8A] inline-block"></span>Live
+                </div>
+                <div class="flex bg-white border border-[#E8EDE8] rounded-xl p-1 gap-0.5">
+                    <button class="period-tab text-[12px] font-medium px-3.5 py-1.5 rounded-lg text-[#6B7A6B] transition-all">Hari</button>
+                    <button class="period-tab active text-[12px] font-medium px-3.5 py-1.5 rounded-lg transition-all">Minggu</button>
+                    <button class="period-tab text-[12px] font-medium px-3.5 py-1.5 rounded-lg text-[#6B7A6B] transition-all">Bulan</button>
+                </div>
+                <button class="flex items-center gap-2 bg-[#153C35] text-white text-[12px] font-semibold px-4 py-2 rounded-xl hover:bg-[#1F7A6B] transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    Export PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- OVERVIEW METRICS -->
+        <div class="flex items-center gap-3 mb-4">
+            <span class="text-[11px] font-bold text-[#153C35] uppercase tracking-[0.06em]">Overview Laporan</span>
+            <div class="section-line flex-1 flex"></div>
+        </div>
+        <div class="grid grid-cols-4 gap-3.5 mb-6" id="metric-cards"></div>
+
+        <!-- TREN + WILAYAH -->
+        <div class="flex items-center gap-3 mb-4">
+            <span class="text-[11px] font-bold text-[#153C35] uppercase tracking-[0.06em]">Tren & Wilayah</span>
+            <div class="section-line flex-1 flex"></div>
+        </div>
+        <div class="grid grid-cols-3 gap-3.5 mb-3.5">
+            <div class="col-span-2 bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider">Tren Laporan Mingguan</span>
+                    <div class="flex items-center gap-4 text-[11px] text-[#6B7A6B]">
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-0.5 bg-[#1F7A6B] inline-block rounded"></span>Masuk</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-0.5 bg-[#4CAF8A] inline-block rounded"></span>Ditangani</span>
+                    </div>
+                </div>
+                <div class="relative w-full h-[190px]">
+                    <canvas id="chartTren" role="img" aria-label="Tren laporan Jan-Mei 2026">Laporan meningkat 620 Jan ke 1284 Mei 2026.</canvas>
+                </div>
+            </div>
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider mb-4">Wilayah Terparah</div>
+                <div id="area-list"></div>
+            </div>
+        </div>
+
+        <!-- TPA STATUS -->
+        <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5 mb-6">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider">Status Kapasitas TPA</span>
+                <span class="text-[11px] text-[#6B7A6B]">Update real-time</span>
+            </div>
+            <div id="tpa-grid" class="grid grid-cols-3 gap-0"></div>
+        </div>
+
+        <!-- DATA SAMPAH -->
+        <div class="flex items-center gap-3 mb-4">
+            <span class="text-[11px] font-bold text-[#153C35] uppercase tracking-[0.06em]">Data Sampah</span>
+            <div class="section-line flex-1 flex"></div>
+        </div>
+        <div class="grid grid-cols-2 gap-3.5 mb-6">
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider mb-3">Jenis Sampah Terlaporkan</div>
+                <div class="flex flex-wrap gap-x-4 gap-y-1.5 mb-4" id="jenis-legend"></div>
+                <div class="relative w-full h-[190px]">
+                    <canvas id="chartJenis" role="img" aria-label="Donut chart jenis sampah">Plastik 38%, Organik 28%, Kertas 14%, Elektronik 11%, Lainnya 9%.</canvas>
+                </div>
+            </div>
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider mb-4">% Penanganan per Kabupaten/Kota</div>
+                <div id="progress-list" class="space-y-3"></div>
+            </div>
+        </div>
+
+        <!-- PRIORITAS WILAYAH & WAKTU RESPONS -->
+        <div class="flex items-center gap-3 mb-4">
+            <span class="text-[11px] font-bold text-[#153C35] uppercase tracking-[0.06em]">Prioritas Wilayah & Waktu Respons</span>
+            <div class="section-line flex-1 flex"></div>
+        </div>
+        <div class="grid grid-cols-2 gap-3.5 mb-6">
+
+            <!-- WILAYAH PRIORITAS (menggantikan Petugas Aktif) -->
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider">Wilayah Prioritas</span>
+                    <span class="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-red-100 text-red-600">● Perlu Tindakan</span>
+                </div>
+                <div id="wilayah-prioritas-ov"></div>
+            </div>
+
+            <!-- WAKTU RESPON (tetap sama) -->
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider mb-4">Rata-rata Waktu Penanganan (jam)</div>
+                <div class="relative w-full h-[260px]">
+                    <canvas id="chartRespon" role="img" aria-label="Bar chart waktu penanganan per kabupaten">Badung 1.8 jam, Jembrana 5.2 jam.</canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- INSIGHT -->
+        <div class="flex items-center gap-3 mb-4">
+            <span class="text-[11px] font-bold text-[#153C35] uppercase tracking-[0.06em]">Insight & Prediksi AI</span>
+            <div class="section-line flex-1 flex"></div>
+        </div>
+        <div class="grid grid-cols-3 gap-3.5" id="insight-grid"></div>
+
+    </main>
+
+    <script src="../src/js/dashboard.js"></script>
+</body>
+</html>
