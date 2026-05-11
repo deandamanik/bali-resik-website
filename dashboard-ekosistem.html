@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekosistem & Komunitas - Bali Resik</title>
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="./src/css/output.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../public/assets/logo/Logo-Green.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .metric-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:16px 16px 0 0; }
+        .metric-green::before { background:#4CAF8A; }
+        .metric-amber::before { background:#F59E0B; }
+        .metric-blue::before  { background:#3B82F6; }
+        .metric-purple::before { background:#8B5CF6; }
+        .nav-item { transition:all 0.15s; }
+        .nav-item.active { background:rgba(255,255,255,0.15); color:#fff; }
+        .nav-item:not(.active) { color:rgba(255,255,255,0.6); }
+        .nav-item:hover:not(.active) { background:rgba(255,255,255,0.08); color:#fff; }
+        .live-dot { animation:pulse-dot 1.5s infinite; }
+        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(0.8);} }
+        .section-line::after { content:''; flex:1; height:1px; background:#e8ede8; }
+        .period-tab.active { background:#153C35; color:#fff; }
+        .filter-btn.active { background:#153C35; color:#fff; border-color:#153C35; }
+        .filter-btn:not(.active) { background:white; color:#153C35; border-color:#E8EDE8; }
+        .priority-bar { transition: width 0.8s ease; }
+    </style>
+</head>
+
+<body class="bg-[#F4F6F3] text-[#153C35] flex min-h-screen">
+
+    <!-- SIDEBAR -->
+    <aside class="w-[220px] bg-[#153C35] min-h-screen flex flex-col fixed left-0 top-0 bottom-0 z-50 pb-6">
+        <div class="px-5 py-6 border-b border-white/10 mb-4">
+            <div class="text-[18px] font-bold text-white tracking-tight">Bali Resik</div>
+            <div class="text-[10px] text-white/40 uppercase tracking-widest mt-0.5">Government Dashboard</div>
+        </div>
+        <nav class="px-3 flex flex-col gap-0.5" id="sidebar-nav"></nav>
+        <div class="mt-auto px-3">
+            <div class="rounded-xl p-3 flex items-center gap-3" style="background:rgba(255,255,255,0.08);">
+                <div class="w-8 h-8 rounded-full bg-[#4CAF8A] flex items-center justify-center text-[11px] font-bold text-white shrink-0">DLH</div>
+                <div>
+                    <div class="text-[12px] font-semibold text-white">Dinas LH Bali</div>
+                    <div class="text-[10px] text-white/40">Administrator</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="ml-[220px] flex-1 p-7 pb-16">
+
+        <!-- TOPBAR -->
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <h1 class="text-[20px] font-bold text-[#153C35] tracking-tight">Ekosistem & Komunitas</h1>
+                <p class="text-[12px] text-[#6B7A6B] mt-0.5">Direktori, Wilayah Prioritas & Gamifikasi Komunitas — Bali 2026</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 bg-white border border-[#E8EDE8] rounded-full px-3 py-1.5 text-[11px] font-semibold text-[#1F7A6B]">
+                    <span class="live-dot w-1.5 h-1.5 rounded-full bg-[#4CAF8A] inline-block"></span>Live
+                </div>
+                <div class="flex bg-white border border-[#E8EDE8] rounded-xl p-1 gap-0.5">
+                    <button class="period-tab text-[12px] font-medium px-3.5 py-1.5 rounded-lg text-[#6B7A6B] transition-all">Hari</button>
+                    <button class="period-tab active text-[12px] font-medium px-3.5 py-1.5 rounded-lg transition-all">Minggu</button>
+                    <button class="period-tab text-[12px] font-medium px-3.5 py-1.5 rounded-lg text-[#6B7A6B] transition-all">Bulan</button>
+                </div>
+                <button class="flex items-center gap-2 bg-[#153C35] text-white text-[12px] font-semibold px-4 py-2 rounded-xl hover:bg-[#1F7A6B] transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    Export PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- METRIC CARDS -->
+        <div class="grid grid-cols-4 gap-3.5 mb-6">
+            <div class="metric-card metric-green bg-white border border-[#E8EDE8] rounded-2xl p-5 relative overflow-hidden">
+                <div class="text-[11px] font-medium text-[#6B7A6B] uppercase tracking-wider mb-2">Bank Sampah Aktif</div>
+                <div class="text-[28px] font-bold text-[#153C35] tracking-tight leading-none mb-1.5">47</div>
+                <div class="flex items-center gap-2 text-[11px] text-[#6B7A6B]">Se-Bali <span class="bg-[#E1F5EE] text-[#1F7A6B] text-[10px] font-bold px-2 py-0.5 rounded-full">+3 baru</span></div>
+            </div>
+            <div class="metric-card metric-amber bg-white border border-[#E8EDE8] rounded-2xl p-5 relative overflow-hidden">
+                <div class="text-[11px] font-medium text-[#6B7A6B] uppercase tracking-wider mb-2">Wilayah Prioritas</div>
+                <div class="text-[28px] font-bold text-[#153C35] tracking-tight leading-none mb-1.5">12</div>
+                <div class="flex items-center gap-2 text-[11px] text-[#6B7A6B]">Butuh tindakan <span class="bg-[#FEE2E2] text-error text-[10px] font-bold px-2 py-0.5 rounded-full">+4</span></div>
+            </div>
+            <div class="metric-card metric-blue bg-white border border-[#E8EDE8] rounded-2xl p-5 relative overflow-hidden">
+                <div class="text-[11px] font-medium text-[#6B7A6B] uppercase tracking-wider mb-2">Total Pelapor Aktif</div>
+                <div class="text-[28px] font-bold text-[#153C35] tracking-tight leading-none mb-1.5">3.842</div>
+                <div class="flex items-center gap-2 text-[11px] text-[#6B7A6B]">Minggu ini <span class="bg-[#E1F5EE] text-[#1F7A6B] text-[10px] font-bold px-2 py-0.5 rounded-full">+18%</span></div>
+            </div>
+            <div class="metric-card metric-purple bg-white border border-[#E8EDE8] rounded-2xl p-5 relative overflow-hidden">
+                <div class="text-[11px] font-medium text-[#6B7A6B] uppercase tracking-wider mb-2">Desa Adat Bergabung</div>
+                <div class="text-[28px] font-bold text-[#153C35] tracking-tight leading-none mb-1.5">89</div>
+                <div class="flex items-center gap-2 text-[11px] text-[#6B7A6B]">dari 636 desa <span class="bg-[#E1F5EE] text-[#1F7A6B] text-[10px] font-bold px-2 py-0.5 rounded-full">14%</span></div>
+            </div>
+        </div>
+
+        <!-- SECTION: WILAYAH PRIORITAS -->
+        <div class="flex items-center gap-3 mb-4">
+            <span class="text-[11px] font-bold text-[#153C35] uppercase tracking-[0.06em]">Wilayah Prioritas Penanganan</span>
+            <div class="section-line flex-1 flex"></div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3.5 mb-6">
+            <!-- Daftar wilayah prioritas -->
+            <div class="col-span-2 bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider">Kecamatan / Desa Terparah</span>
+                    <div class="flex gap-1.5">
+                        <button class="filter-btn active text-[11px] font-semibold px-3 py-1 rounded-lg border text-xs transition-all">Semua</button>
+                        <button class="filter-btn text-[11px] font-semibold px-3 py-1 rounded-lg border text-xs transition-all">Kritis</button>
+                        <button class="filter-btn text-[11px] font-semibold px-3 py-1 rounded-lg border text-xs transition-all">Waspada</button>
+                    </div>
+                </div>
+                <div id="wilayah-prioritas" class="space-y-0"></div>
+            </div>
+
+            <!-- Skor urgensi -->
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider mb-4">Urgensi per Kabupaten</div>
+                <div class="relative w-full h-[260px]">
+                    <canvas id="chartUrgensi" role="img" aria-label="Bar chart skor urgensi per kabupaten Bali">Denpasar memiliki skor urgensi tertinggi.</canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: DIREKTORI EKOSISTEM -->
+        <div class="flex items-center gap-3 mb-4">
+            <span class="text-[11px] font-bold text-[#153C35] uppercase tracking-[0.06em]">Direktori Ekosistem Pengelolaan Sampah</span>
+            <div class="section-line flex-1 flex"></div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3.5 mb-6">
+            <!-- Bank Sampah -->
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider">♻️ Bank Sampah</span>
+                    <span class="text-[10px] font-semibold px-2 py-1 rounded-full bg-[#E1F5EE] text-[#1F7A6B]">47 aktif</span>
+                </div>
+                <div id="list-bank-sampah" class="space-y-0"></div>
+            </div>
+
+            <!-- Pengepul -->
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider">🏪 Pengepul</span>
+                    <span class="text-[10px] font-semibold px-2 py-1 rounded-full bg-blue-50 text-blue-600">32 terdaftar</span>
+                </div>
+                <div id="list-pengepul" class="space-y-0"></div>
+            </div>
+
+            <!-- TPA -->
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider">🗑️ TPA</span>
+                    <span class="text-[10px] font-semibold px-2 py-1 rounded-full bg-amber-50 text-amber-700">6 TPA</span>
+                </div>
+                <div id="list-tpa" class="space-y-0"></div>
+            </div>
+        </div>
+
+        <!-- SECTION: KOMUNITAS & GAMIFIKASI -->
+        <div class="flex items-center gap-3 mb-4">
+            <span class="text-[11px] font-bold text-[#153C35] uppercase tracking-[0.06em]">Komunitas & Gamifikasi</span>
+            <div class="section-line flex-1 flex"></div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3.5">
+            <!-- Leaderboard Desa Adat -->
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider mb-4">🏆 Leaderboard Desa Adat</div>
+                <div id="leaderboard-desa" class="space-y-0"></div>
+            </div>
+
+            <!-- Top Pelapor -->
+            <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                <div class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider mb-4">⭐ Top Pelapor Minggu Ini</div>
+                <div id="top-pelapor" class="space-y-0"></div>
+            </div>
+
+            <!-- Dampak nyata + misi aktif -->
+            <div class="flex flex-col gap-3.5">
+                <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5">
+                    <div class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider mb-4">🌿 Dampak Nyata</div>
+                    <div class="space-y-3" id="dampak-nyata"></div>
+                </div>
+                <div class="bg-white border border-[#E8EDE8] rounded-2xl p-5 flex-1">
+                    <div class="text-[12px] font-semibold text-[#6B7A6B] uppercase tracking-wider mb-4">🎯 Misi Aktif</div>
+                    <div class="space-y-2.5" id="misi-aktif"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../src/js/dashboard.js"></script>
+</body>
+</html>
